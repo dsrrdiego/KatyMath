@@ -2,10 +2,18 @@
 //arreglar el keypress
 
 let flechasEnElAire=[];
+let bolasEnElAire=[];
+
 document.addEventListener("keydown", (event) => {gameLoop(event.key);});
 
 const jugador1=new Jugador();
 
+//crear bolas
+
+setInterval(()=>{
+    let bola=new Bola();
+    bolasEnElAire.push(bola);
+},1000)
 
 function procesar_entrada_usuario(tecla) {
     // console.log(tecla);
@@ -45,6 +53,10 @@ function renderizar() {
     for (let flecha of flechasEnElAire){
         flecha.dibujar();
     
+    }
+    for (let bola of bolasEnElAire){
+        bola.dibujar();
+
     }
 }
 
