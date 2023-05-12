@@ -1,10 +1,19 @@
 
-//arreglar el keypress
 
-let tecla;
+let tecla={
+    ArrowLeft:false,
+    ArrowRight:false,
+    ArrowUp:false,
+    Space:false
+};
 let flechasEnElAire=[];
 let bolasEnElAire=[];
-document.addEventListener("keydown", (event) => {tecla=event.key;});
+document.addEventListener("keydown", (event) => {tecla[event.code]=true;
+
+if (event.key=="x") new Bola();
+});
+document.addEventListener("keyup", (event) => {tecla[event.code]=false;});
+
 
 const jugador1=new Jugador();
 
@@ -16,30 +25,10 @@ new Bola();
 
 function procesar_entrada_usuario() {
     // console.log(tecla);
-    switch (tecla){
-        
-        case "ArrowLeft":
-            jugador1.retroceder();
-            break;
-        
-        case "ArrowRight":
-            jugador1.avanzar();
-            break;
-
-            case "ArrowUp":
-            jugador1.saltar();
-            break;
-
-        case " ":
-            jugador1.disparar();
-            break;
-        
-        case "Escape":
-            // in_game=false;
-            //pausar;
-    
-        }
-        tecla="";
+    if (tecla.ArrowLeft) jugador1.retroceder();
+    if (tecla.ArrowRight) jugador1.avanzar();
+    if (tecla.ArrowUp) jugador1.saltar();
+    if (tecla.Space) jugador1.disparar();
 }
 
 

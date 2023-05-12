@@ -5,7 +5,7 @@ class Bola{
             bolaNumero++;
             this.numero=bolaNumero%4;
             this.x=Math.floor(Math.random()*400);
-            this.radio=Math.floor(Math.random()*100)+20;
+            this.radio=Math.floor(Math.random()*150)+20;
             this.direccionX=Math.floor(Math.random()*7)-3;
             this.sentido=1.1;
             this.y=10;
@@ -35,12 +35,13 @@ class Bola{
 
     actualizar(){
 
-        if (this.x>400) this.direccionX*=-1;
-        if (this.x<0) this.direccionX*=-1;
+        if (this.x+this.radio>970) this.direccionX*=-1;
+        if (this.x-this.radio<0) this.direccionX*=-1;
 
 
         if (this.yTope<150){
-        
+            console.log(this.yTope);
+            
             if (this.y<this.yTope && this.sentido==0.95){
                 
                 this.sentido=1.05;
@@ -62,7 +63,7 @@ class Bola{
                 const hipo=Math.sqrt(difX**2+difY**2);
                 
                 if (hipo<this.radio+bola.radio) {
-                    console.log('colision');
+                    // console.log('colision');
                     
                     this.direccionX*=-1;
                     bola.direccionX*=-1;
