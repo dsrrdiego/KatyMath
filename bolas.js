@@ -5,15 +5,12 @@ class Bola{
             bolaNumero++;
             this.numero=bolaNumero%4;
             this.x=Math.floor(Math.random()*400);
-            this.radio=Math.floor(Math.random()*150)+50;
+            this.radio=Math.floor(Math.random()*100)+20;
             this.direccionX=Math.floor(Math.random()*7)-3;
             this.sentido=1.1;
             this.y=10;
             this.yTope=10;
             this.div=document.createElement('div');
-            
-            // this.div.classList.add('bola');
-            // this.div.cssText="background: url('images/esfera.jpeg') center/cover;width:50px;height:50px";
             this.div.cssText="background: url('images/esfera0.jpeg') center/cover;";
             document.body.appendChild(this.div);
             bolasEnElAire.push(this);
@@ -65,6 +62,8 @@ class Bola{
                 const hipo=Math.sqrt(difX**2+difY**2);
                 
                 if (hipo<this.radio+bola.radio) {
+                    console.log('colision');
+                    
                     this.direccionX*=-1;
                     bola.direccionX*=-1;
                     if (this.sentido==0.95) this.sentido=1.05; else this.sentido=0.95
@@ -88,6 +87,7 @@ class Bola{
 
             new Bola(this,1);
             new Bola(this,-1);
+            return true;
         }
 
     }

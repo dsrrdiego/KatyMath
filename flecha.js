@@ -13,7 +13,11 @@ class Flecha{
     actualizar(){
         this.y-=10;
         for (let bola of bolasEnElAire){
-            bola.teDi(this.x,this.y)
+            if (bola.teDi(this.x,this.y)){
+                const indice=flechasEnElAire.indexOf(this);
+                flechasEnElAire.splice(indice,1);
+                document.body.removeChild(this.div);
+            }
         }
 
     }
