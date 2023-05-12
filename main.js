@@ -1,21 +1,34 @@
 
 //arreglar el keypress
 
+
+let piso = document.getElementById("jugador1");
+let pisoDatos = piso.getBoundingClientRect();
+let pisoTop = pisoDatos.top;
+let pisoBottom=pisoDatos.bottom;
+
+console.log(pisoTop); // Muestra el valor de 'left' en píxeles en la consola
+console.log(pisoBottom); // Muestra el valor de 'left' en píxeles en la consola
+
+
+let tecla;
 let flechasEnElAire=[];
 let bolasEnElAire=[];
-
-document.addEventListener("keydown", (event) => {gameLoop(event.key);});
+document.addEventListener("keydown", (event) => {tecla=event.key;});
 
 const jugador1=new Jugador();
 
 //crear bolas
 
-setInterval(()=>{
+setInterval(crearBola,2000);
+
+function crearBola(){
     let bola=new Bola();
     bolasEnElAire.push(bola);
-},1000)
+}
+crearBola();
 
-function procesar_entrada_usuario(tecla) {
+function procesar_entrada_usuario() {
     // console.log(tecla);
     switch (tecla){
         
@@ -45,7 +58,10 @@ function procesar_entrada_usuario(tecla) {
 
 
 function actualizar_estado() {
-    // actualizar estado
+    for (let bola of bolasEnElAire){
+        bola.actualizar();
+
+    }
 }
 
 function renderizar() {
@@ -61,8 +77,8 @@ function renderizar() {
 }
 
 let in_game = true;
-function gameLoop(tecla) {
-    procesar_entrada_usuario(tecla);
+function gameLoop() {
+    procesar_entrada_usuario();
     actualizar_estado();
     renderizar();
 

@@ -6,6 +6,10 @@ class Jugador{
          this.div=document.querySelector('#jugador1');
          this.x=50;
          this.div.classList.add('caminar');
+
+        
+
+
     }
     avanzar(){
         this.x+=velocidadX;
