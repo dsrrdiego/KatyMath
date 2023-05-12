@@ -1,13 +1,11 @@
-const velocidadX=3;
-const velocidadRetroceso=3;
+const velocidadX=10;
+const velocidadRetroceso=10;
 
 class Jugador{
     constructor(){
          this.div=document.querySelector('#jugador1');
          this.x=50;
          this.div.classList.add('caminar');
-
-        
 
 
     }

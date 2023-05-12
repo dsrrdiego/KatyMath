@@ -1,21 +1,37 @@
 let bolaNumero=-1;
 class Bola{
-    constructor(){
-        bolaNumero++;
-        this.numero=bolaNumero;
-        this.x=Math.floor(Math.random()*400);
-        this.y=1;
-        this.radio=Math.floor(Math.random()*50)+5;
-        this.direccionX=Math.floor(Math.random()*7)-3;
-        this.sentido=1.1;
-        this.y=10;
-        this.yTope=10;
-        this.div=document.createElement('div');
-        this.div.classList.add('bola');
-        document.body.appendChild(this.div);
-
+    constructor(copia, direccion){
+        if (copia==null){
+            bolaNumero++;
+            this.numero=bolaNumero;
+            this.x=Math.floor(Math.random()*400);
+            this.radio=Math.floor(Math.random()*150)+50;
+            this.direccionX=Math.floor(Math.random()*7)-3;
+            this.sentido=1.1;
+            this.y=10;
+            this.yTope=10;
+            this.div=document.createElement('div');
+            this.div.classList.add('bola');
+            document.body.appendChild(this.div);
+            bolasEnElAire.push(this);
+    }else{
+        console.log('entro');
         
+        if (copia.radio>20){
+            this.x=copia.x;
+            this.y=copia.y;
+            this.radio=copia.radio/2;
+            this.direccionX=copia.direccionX*direccion;
+            this.sentido=copia.sentido;
+            this.yTope=copia.yTope;
+            this.div=document.createElement('div');
+            this.div.classList.add('bola');
+            document.body.appendChild(this.div);
+            bolasEnElAire.push(this);
+        }
     }
+}
+
     actualizar(){
 
         if (this.x>400) this.direccionX*=-1;
@@ -42,7 +58,7 @@ class Bola{
                 
                 const difX=Math.abs(this.x-bola.x);
                 const difY=Math.abs(this.y-bola.y);
-                const hipo=Math.sqrt(difX*difX+difY*difY);
+                const hipo=Math.sqrt(difX**2+difY**2);
                 
                 if (hipo<this.radio+bola.radio) {
                     this.direccionX*=-1;
@@ -52,6 +68,22 @@ class Bola{
                     
                 }
             }
+        }
+
+    }
+    teDi(x,y){
+        const difX=Math.abs(this.x-x);
+        const difY=Math.abs(this.y-y);
+        const hipo=Math.sqrt(difX**2 + difY**2);
+        if (hipo< this.radio){
+
+            console.log('dada'+this.numero);
+            const indice = bolasEnElAire.indexOf(this);
+            bolasEnElAire.splice(indice, 1); 
+            document.body.removeChild(this.div);
+
+            new Bola(this,1);
+            new Bola(this,-1);
         }
 
     }

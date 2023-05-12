@@ -18,15 +18,11 @@ document.addEventListener("keydown", (event) => {tecla=event.key;});
 
 const jugador1=new Jugador();
 
+
 //crear bolas
+setInterval(()=>new Bola(),10000);
+new Bola();
 
-setInterval(crearBola,10000);
-
-function crearBola(){
-    let bola=new Bola();
-    bolasEnElAire.push(bola);
-}
-crearBola();
 
 function procesar_entrada_usuario() {
     // console.log(tecla);
@@ -61,6 +57,10 @@ function actualizar_estado() {
     for (let bola of bolasEnElAire){
         bola.actualizar();
 
+    }
+    for (let flecha of flechasEnElAire){
+        flecha.actualizar();
+    
     }
 }
 
