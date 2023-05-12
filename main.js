@@ -1,16 +1,6 @@
 
 //arreglar el keypress
 
-
-let piso = document.getElementById("jugador1");
-let pisoDatos = piso.getBoundingClientRect();
-let pisoTop = pisoDatos.top;
-let pisoBottom=pisoDatos.bottom;
-
-console.log(pisoTop); // Muestra el valor de 'left' en píxeles en la consola
-console.log(pisoBottom); // Muestra el valor de 'left' en píxeles en la consola
-
-
 let tecla;
 let flechasEnElAire=[];
 let bolasEnElAire=[];
