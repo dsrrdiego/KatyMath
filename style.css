@@ -60,3 +60,10 @@ body{
     background: url('images/montañas.png') center/cover;
     animation: mover 10s linear infinite;
 }
+
+.flecha{
+    position: fixed;
+    width:5%;
+    height: 80px;
+    background: url('images/flecha.jpg') center/cover;
+}

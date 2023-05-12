@@ -1,4 +1,7 @@
-// let tecla;
+
+//arreglar el keypress
+
+let flechasEnElAire=[];
 document.addEventListener("keydown", (event) => {gameLoop(event.key);});
 
 const jugador1=new Jugador();
@@ -9,25 +12,25 @@ function procesar_entrada_usuario(tecla) {
     switch (tecla){
         
         case "ArrowLeft":
-            jugador1.x--;
-            
+            jugador1.retroceder();
             break;
-            
-            case "ArrowRight":
-                jugador1.x+=3;
-                break;
-            case "ArrowUp":
-                jugador1.saltar();
+        
+        case "ArrowRight":
+            jugador1.avanzar();
             break;
 
-            case " ":
-                jugador1.disparar();
-                break;
-            
-                case "Escape":
-                    // in_game=false;
-                    //pausar;
+            case "ArrowUp":
+            jugador1.saltar();
+            break;
+
+        case " ":
+            jugador1.disparar();
+            break;
         
+        case "Escape":
+            // in_game=false;
+            //pausar;
+    
         }
         tecla="";
 }
@@ -39,6 +42,10 @@ function actualizar_estado() {
 
 function renderizar() {
     jugador1.dibujar();
+    for (let flecha of flechasEnElAire){
+        flecha.dibujar();
+    
+    }
 }
 
 let in_game = true;

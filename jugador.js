@@ -1,18 +1,30 @@
+const velocidadX=3;
+const velocidadRetroceso=3;
+
 class Jugador{
     constructor(){
          this.div=document.querySelector('#jugador1');
          this.x=50;
          this.div.classList.add('caminar');
     }
+    avanzar(){
+        this.x+=velocidadX;
+    }
+    retroceder(){
+        this.x-=velocidadRetroceso;
+    }
     saltar(){
-        console.log('salto');
         this.div.classList.remove('caminar');
         this.div.classList.add('saltar');
         setTimeout(()=>{
-            console.log('volvio');
             this.div.classList.remove('saltar');
             this.div.classList.add('caminar');
         },1000)
+    }
+
+    disparar(){
+        let flecha=new Flecha(this);
+        
     }
 
     dibujar (){
