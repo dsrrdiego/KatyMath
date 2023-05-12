@@ -71,7 +71,7 @@ body{
     position: fixed;
     /* width:100px; */
     /* height: 100px; */
-    background: url('images/bola.jpg') center/cover;
+    /* background: url('images/bola.jpg') center/cover; */
     opacity: 0.5;
     /* z-index: 2; */
 }

@@ -3,7 +3,7 @@ class Bola{
     constructor(copia, direccion){
         if (copia==null){
             bolaNumero++;
-            this.numero=bolaNumero;
+            this.numero=bolaNumero%4;
             this.x=Math.floor(Math.random()*400);
             this.radio=Math.floor(Math.random()*150)+50;
             this.direccionX=Math.floor(Math.random()*7)-3;
@@ -11,13 +11,17 @@ class Bola{
             this.y=10;
             this.yTope=10;
             this.div=document.createElement('div');
-            this.div.classList.add('bola');
+            
+            // this.div.classList.add('bola');
+            // this.div.cssText="background: url('images/esfera.jpeg') center/cover;width:50px;height:50px";
+            this.div.cssText="background: url('images/esfera0.jpeg') center/cover;";
             document.body.appendChild(this.div);
             bolasEnElAire.push(this);
     }else{
         console.log('entro');
         
         if (copia.radio>20){
+            this.numero=copia.numero;
             this.x=copia.x;
             this.y=copia.y;
             this.radio=copia.radio/2;
@@ -91,6 +95,6 @@ class Bola{
 
     dibujar(){
         
-        this.div.style.cssText = `position: fixed; top: ${this.y-this.radio}px; left:${this.x-this.radio}px; width:${this.radio*2}px; height:${this.radio*2}px`;
+        this.div.style.cssText = `background: url('images/esferat${this.numero}.png') center/cover; position: fixed; top: ${this.y-this.radio}px; left:${this.x-this.radio}px; width:${this.radio*2}px; height:${this.radio*2}px`;
     }
 }
