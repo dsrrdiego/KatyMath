@@ -1,36 +1,13 @@
-let tecla;
-document.addEventListener("keydown", (event) => {tecla=event.key;});
+// let tecla;
+document.addEventListener("keydown", (event) => {gameLoop(event.key);});
 
-const jugador1={
-    div:document.querySelector('#jugador1'),
-    x:50,
-    inicializar: function(){
-        this.div.classList.add('caminar');
-    },
-    saltar:function(){
-        console.log('salto');
-        
-        this.div.classList.remove('caminar');
-        this.div.classList.add('saltar');
-        setTimeout(()=>{
-            console.log('volvio');
-            
-            this.div.classList.remove('saltar');
-            this.div.classList.add('caminar');
-        },1000)
+const jugador1=new Jugador();
 
 
-    },
-    dibujar:function (){
-        this.div.style="left:"+this.x+"px;";
-    }
-}
-
-jugador1.inicializar();
-
-
-function procesar_entrada_usuario() {
+function procesar_entrada_usuario(tecla) {
+    // console.log(tecla);
     switch (tecla){
+        
         case "ArrowLeft":
             jugador1.x--;
             
@@ -39,11 +16,18 @@ function procesar_entrada_usuario() {
             case "ArrowRight":
                 jugador1.x+=3;
                 break;
-                case "ArrowUp":
-                    jugador1.saltar();
-                    // jugador1.imagen='saltar';
-                // this.div.style=`background: url('images/${this.imagen}.png')`;
+            case "ArrowUp":
+                jugador1.saltar();
+            break;
+
+            case " ":
+                jugador1.disparar();
                 break;
+            
+                case "Escape":
+                    // in_game=false;
+                    //pausar;
+        
         }
         tecla="";
 }
@@ -58,8 +42,8 @@ function renderizar() {
 }
 
 let in_game = true;
-function gameLoop() {
-    procesar_entrada_usuario();
+function gameLoop(tecla) {
+    procesar_entrada_usuario(tecla);
     actualizar_estado();
     renderizar();
 
