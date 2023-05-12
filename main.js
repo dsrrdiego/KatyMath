@@ -20,7 +20,7 @@ const jugador1=new Jugador();
 
 //crear bolas
 
-setInterval(crearBola,2000);
+setInterval(crearBola,10000);
 
 function crearBola(){
     let bola=new Bola();
