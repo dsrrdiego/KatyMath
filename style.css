@@ -1,0 +1,41 @@
+body{
+    margin:0;
+    height: 250px;
+    width:510px;
+}
+
+#cielo{
+    position: fixed;
+    background: url('images/cielo.jpeg') center/cover;    
+    width:100%;
+    height: 80%;
+    background-position: 0%;
+    animation: mover 10s linear infinite;
+}
+
+
+#jugador1{
+    position:fixed;
+    top:70%;
+    left:50%;
+    width: 25px;
+    height: 35px;
+    background: url('images/walk.png') ;
+    animation: mover 1s steps(4) infinite;
+}
+
+@keyframes mover{
+    0%{
+        background-position-x: 0%;
+    }
+    100%{
+        background-position-x: 1000%;
+    }
+}
+#montañas{
+    position: fixed;
+    top:20%;
+    width:100%;
+    height: 60%;
+    background: url('images/montañas.png') center/cover;
+}
