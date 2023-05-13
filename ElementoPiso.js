@@ -4,41 +4,36 @@ class ElementoPiso{
         this.div=document.createElement('div');
         document.body.appendChild(this.div);
         this.x=x;
-        this.y=LIMITE_Y-45;
-        charcosEnElSuelo.push(this);
-        console.log(charcosEnElSuelo);
+        cosasEnElPiso.push(this);
+        this.animation="";
         
 
     }
     actualizar(){
-        if (this.radio>60){
-            this.radio-=0.1;
-            this.y=LIMITE_Y+30-(this.radio);
-        }else{
-            // if (charcosEnElSuelo.indexOf(this)>-1){            
-                setTimeout(() => {
-                    const indice=charcosEnElSuelo.indexOf(this);
-                    
-                    charcosEnElSuelo.splice(indice,1);
-                    setTimeout(() => {
-                        console.log(charcosEnElSuelo);
-                        // if (this.div) document.body.removeChild(this.div);
-                    }, 4000);
-                    
-                }, 1500);
-            // }
-        }
+        
+            this.x-=0.4;
 
+            if (this.x<-10 || this.y<-10){
+                console.log('borro'+this);
+                const indice=cosasEnElPiso.indexOf(this);
+                cosasEnElPiso.splice(indice,1);
+                document.body.removeChild(this.div);
+                
+            }
 
     }
+    
     pise(x,y){
-        if (x>this.x-this.radio && x<this.x+this.radio &&
-            tecla.ArrowUp==false) return true;
-
+            if (x>this.x-this.radioX && x<this.x+this.radioX &&
+                y>this.y-this.radioY && y<this.y+this.radioY){
+                    return this.mePiso();
+             }
 
     }
     dibujar(){
-        this.div.style.cssText = `top: ${this.y}px; left:${this.x-this.radio}px; width:${this.radio*2}px; height:200px`;
+        
+        this.div.style= `${this.animation}top: ${this.y-this.radioY}px; left:${this.x-this.radioX}px; width:${this.radioX*2}px; height:${this.radioY*2}px`;
+        // this.div.style= `animation: abrirCofre 1s linear infinite;top: ${this.y-this.radioY}px; left:${this.x-this.radioX}px; width:${this.radioX*2}px; height:${this.radioY*2}px`;
 
     }
 

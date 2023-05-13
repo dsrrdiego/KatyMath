@@ -42,7 +42,7 @@ h2{
 
 #jugador1{
     position:fixed;
-    top:365px;
+    /* top:365px; */
     width: 25px;
     height: 35px;
     z-index:10;
@@ -54,7 +54,7 @@ h2{
 
 .saltar{
     background: url('images/saltar.png') ;
-    animation: saltar 0.5s steps(4);
+    animation: saltar 3s steps(4);
 }
 .morir{
     background: url('images/morir.png') ;
@@ -84,9 +84,9 @@ h2{
         background-position-x: 0%;
         
     }
-    50%{top:50%;}
+    /* 50%{top:50%;} */
     100%{
-        top:75%;
+        /* top:75%; */
         background-position-x: 1000%;
     }
 }
@@ -117,30 +117,27 @@ h2{
     background: url('images/charco.png');
     background-size: contain;
     background-repeat: no-repeat;
-    animation: desplazar 1s linear infinite;
-}
-
-
-.cofre{
-    position: fixed;
-    width:180px;
-    height:250px;
-    background: url('images/arcoYflecha.png');
-    background-size: contain;
-    background-repeat: no-repeat;
     /* animation: desplazar 1s linear infinite; */
 }
-/* @keyframe charcoAn{
-    0%{
-    background-size: 50% auto;
-    width:20px;
-}
-50%{
-        background-size: 120% auto;
 
+.llegada{
+    position: fixed;
+    background: url('images/llegada.png') center/cover;
+}
+.cofre{
+    position: fixed;
+    background: url('images/cofres.png');
+}
+
+/* .abrirCofre{ */
+    /* animation: abrir 5s step(4) infinite; */
+/* } */
+
+@keyframes abrirCofre {
+    0%{
+        background-position-x: 0px;
     }
-100%{
-        background-size: 80% auto;
-width:200px;
+    100%{
+        background-position-x: -220px;
     }
-} */
+}

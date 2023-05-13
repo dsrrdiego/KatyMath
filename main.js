@@ -7,7 +7,7 @@ let tecla={
 };
 let flechasEnElAire=[];
 let bolasEnElAire=[];
-let charcosEnElSuelo=[];
+let cosasEnElPiso=[];
 let jugadoresEnJuego=[];
 const infoDiv=document.querySelector('#infoDiv')
 
@@ -36,9 +36,11 @@ const jugador1=new Jugador();
 
 
 //crear bolas
-// setInterval(()=>new Bola(),10000);
-new Bola();
-new Cofre(bolasEnElAire[0].x)
+setInterval(()=>{
+    const azar=Math.floor(Math.random()*2);    
+    (azar>0)? new Bola():new Cofre((Math.random()*3000)+1000);
+},Math.floor((Math.random()*5000)+1000));
+new Llegada(3000);
 
 
 function procesar_entrada_usuario() {
@@ -47,7 +49,7 @@ function procesar_entrada_usuario() {
     if (tecla.ArrowRight) jugador1.avanzar();
     if (tecla.ArrowUp){
          jugador1.saltar();
-        //  tecla.ArrowUp=false;
+         tecla.ArrowUp=false;
     }
     if (tecla.Space){
         jugador1.disparar();
@@ -60,14 +62,14 @@ function actualizar_estado() {
     jugadoresEnJuego.forEach((jugador)=>jugador.actualizar());
     bolasEnElAire.forEach((bola)=>bola.actualizar());
     flechasEnElAire.forEach((flecha)=>flecha.actualizar());
-    charcosEnElSuelo.forEach((charco)=>charco.actualizar());
+    cosasEnElPiso.forEach((charco)=>charco.actualizar());
 }
 
 function renderizar() {
     jugadoresEnJuego.forEach((jugador)=>jugador.dibujar())
     flechasEnElAire.forEach((flecha)=>flecha.dibujar());
     bolasEnElAire.forEach((bola)=>bola.dibujar());
-    charcosEnElSuelo.forEach((charco)=>charco.dibujar());
+    cosasEnElPiso.forEach((charco)=>charco.dibujar());
 }
 
 let in_game = true;
