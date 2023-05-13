@@ -1,6 +1,8 @@
 const velocidadX=10;
 const velocidadRetroceso=10;
 
+const MEDIOANCHO=12.5;
+
 class Jugador{
     constructor(){
          this.div=document.querySelector('#jugador1');
@@ -30,7 +32,7 @@ class Jugador{
     }
 
     dibujar (){
-            this.div.style="left:"+this.x+"px;";
+            this.div.style="left:"+(this.x-MEDIOANCHO)+"px;";
     }
 
 }

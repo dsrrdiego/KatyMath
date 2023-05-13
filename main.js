@@ -27,8 +27,14 @@ function procesar_entrada_usuario() {
     // console.log(tecla);
     if (tecla.ArrowLeft) jugador1.retroceder();
     if (tecla.ArrowRight) jugador1.avanzar();
-    if (tecla.ArrowUp) jugador1.saltar();
-    if (tecla.Space) jugador1.disparar();
+    if (tecla.ArrowUp){
+         jugador1.saltar();
+         tecla.ArrowUp=false;
+    }
+    if (tecla.Space){
+        jugador1.disparar();
+        tecla.Space=false;       
+    } 
 }
 
 

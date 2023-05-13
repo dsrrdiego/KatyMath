@@ -10,9 +10,8 @@ class Bola{
             this.x=Math.floor(Math.random()*400);
             this.radio=Math.floor(Math.random()*80)+20;
             this.direccionX=Math.floor(Math.random()*7)-3;
-            // this.direccionX=Math.floor(Math.random()*3)*Math.floor(Math.random()*4);
             this.gravedad=GRAVEADADbaja;
-            this.enColision=null;
+            this.enColisionCon=null;
             this.y=10;
             this.yTope=10;
             this.div=document.createElement('div');
@@ -27,8 +26,8 @@ class Bola{
             this.y=copia.y;
             this.radio=copia.radio/2;
             this.direccionX=copia.direccionX*direccion;
-            this.caida=copia.caida;
-            this.yTope=copia.yTope;
+            this.gravedad=copia.gravedad;
+            this.yTope=10;
             this.div=document.createElement('div');
             this.div.classList.add('bola');
             document.body.appendChild(this.div);
@@ -39,6 +38,7 @@ class Bola{
 
     actualizar(){
         
+        //limites de la pantalla en X
         if (this.x+this.radio>970) {
             this.direccionX*=-1;
             this.x=970-this.radio;
@@ -48,7 +48,7 @@ class Bola{
             this.x=this.radio;
         }
 
-        
+        //gravedad
         if (this.y<this.yTope) this.gravedad=GRAVEADADbaja;
         if (this.y>LIMITEY-this.radio) this.gravedad=GRAVEADADsube;
         this.yTope+=0.5;
@@ -62,8 +62,11 @@ class Bola{
         }
         this.y*=this.gravedad;
         this.x=this.x+this.direccionX;
+
+        //corroborar colision
         this.colision();
     }
+
     colision(){
         for (let bola of bolasEnElAire){
             if (bola!=this){
@@ -85,7 +88,7 @@ class Bola{
         }
 
     }
-    teDi(x,y){
+    teDi(x,y){  //si la flech le dio
         const difX=Math.abs(this.x-x);
         const difY=Math.abs(this.y-y);
         const hipo=Math.sqrt(difX**2 + difY**2);

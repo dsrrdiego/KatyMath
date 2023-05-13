@@ -1,4 +1,4 @@
-
+const MEDIOANCHOFLECHA=15;
 class Flecha{
     constructor(jugador){
         this.x=jugador.x;
@@ -15,8 +15,10 @@ class Flecha{
         for (let bola of bolasEnElAire){
             if (bola.teDi(this.x,this.y)){
                 const indice=flechasEnElAire.indexOf(this);
-                flechasEnElAire.splice(indice,1);
-                document.body.removeChild(this.div);
+                if (indice >-1){
+                    flechasEnElAire.splice(indice,1);
+                    document.body.removeChild(this.div);
+                }
             }
         }
 
@@ -24,6 +26,6 @@ class Flecha{
 
 
     dibujar(){
-        this.div.style.cssText = `position: fixed; top: ${this.y}px; left:${this.x}px;`;
+        this.div.style.cssText = `position: fixed; top: ${this.y}px; left:${this.x-MEDIOANCHOFLECHA}px;`;
     }
 }
