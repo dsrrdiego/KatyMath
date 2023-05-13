@@ -1,4 +1,4 @@
-const LIMITEY=400;
+const LIMITE_Y=400;
 const GRAVEADADsube=0.95;
 const GRAVEADADbaja=1.05;
 let bolaNumero=-1;
@@ -50,14 +50,15 @@ class Bola{
 
         //gravedad
         if (this.y<this.yTope) this.gravedad=GRAVEADADbaja;
-        if (this.y>LIMITEY-this.radio) this.gravedad=GRAVEADADsube;
+        if (this.y>LIMITE_Y-this.radio) this.gravedad=GRAVEADADsube;
         this.yTope+=0.5;
         if (this.yTope>200 ) {
             this.radio-=0.25;
-            if (this.radio<10){
+            if (this.radio<50){
                 const indice=bolasEnElAire.indexOf(this);
                 bolasEnElAire.splice(indice,1);
                 document.body.removeChild(this.div);
+                new Charco(this);
             }
         }
         this.y*=this.gravedad;
@@ -94,7 +95,6 @@ class Bola{
         const hipo=Math.sqrt(difX**2 + difY**2);
         if (hipo< this.radio){
 
-            console.log('dada'+this.numero);
             const indice = bolasEnElAire.indexOf(this);
             bolasEnElAire.splice(indice, 1); 
             document.body.removeChild(this.div);

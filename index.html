@@ -8,10 +8,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="hud">
+        <h2>Puntos</h2>
+        <h2 id="puntosDiv">0</h2>
+        <h2>Flechas</h2>
+        <h2 id="flechasDiv">5</h2>
+        <h2>Vidas</h2>
+        <h2 id="vidasDiv">0</h2>
+    </div>
+
     <div id="cielo"></div>
     <div id="montañas"></div>
+    <div id="tierra"></div>
     <div id="jugador1"></div>
+    <div id="infoDiv" class="invisible">
+        <h1>Perdiste</h1>
+    </div>
+    <!-- <div class="charco"></div> -->
 </body>
+<script src="ElementoPiso.js"></script>
+<script src="charco.js"></script>
+<script src="cofre.js"></script>
 <script src="bolas.js"></script>
 <script src="flecha.js"></script>
 <script src="jugador.js"></script>

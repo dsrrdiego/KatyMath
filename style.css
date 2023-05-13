@@ -2,6 +2,17 @@ body{
     margin:0;
     height:480px;
 }
+#hud{
+    position: fixed;
+    display:flex;
+    flex-direction: row;
+    justify-content: right;
+    z-index: 5;
+    width:100%;
+}
+h2{
+    margin-right: 20px;
+}
 
 #cielo{
     position: fixed;
@@ -20,12 +31,21 @@ body{
     background: url('images/montañas.png') center/cover;
     animation: desplazar 10s linear infinite;
 }
+#tierra{
+    position:fixed;
+    width:100%;
+    background-color: green;
+    top:380px;
+    height:110px;
+
+}
 
 #jugador1{
     position:fixed;
     top:365px;
     width: 25px;
     height: 35px;
+    z-index:10;
 }
 .caminar{
     background: url('images/walk.png') ;
@@ -35,7 +55,10 @@ body{
 .saltar{
     background: url('images/saltar.png') ;
     animation: saltar 0.5s steps(4);
-    
+}
+.morir{
+    background: url('images/morir.png') ;
+    animation: morir 1s steps(8);
 }
 
 @keyframes desplazar{
@@ -47,12 +70,21 @@ body{
     }
 }
 
+@keyframes morir{
+    0%{
+        background-position-x: 0px;
+    }
+    100%{
+        background-position-x: -256px;
+    }
+}
+
 @keyframes saltar{
     0%{
         background-position-x: 0%;
         
     }
-    30%{top:50%;}
+    50%{top:50%;}
     100%{
         top:75%;
         background-position-x: 1000%;
@@ -67,3 +99,48 @@ body{
     background: url('images/flecha.png') center/cover;
 }
 
+#infoDiv{
+    
+    background-color: red;
+    position:fixed;
+    top:200px;
+    margin-left: 100px;
+    /* z-index: 15; */
+}
+.invisible{
+    display:none;
+}
+.charco{
+    position: fixed;
+    width:180px;
+    height:250px;
+    background: url('images/charco.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: desplazar 1s linear infinite;
+}
+
+
+.cofre{
+    position: fixed;
+    width:180px;
+    height:250px;
+    background: url('images/arcoYflecha.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* animation: desplazar 1s linear infinite; */
+}
+/* @keyframe charcoAn{
+    0%{
+    background-size: 50% auto;
+    width:20px;
+}
+50%{
+        background-size: 120% auto;
+
+    }
+100%{
+        background-size: 80% auto;
+width:200px;
+    }
+} */

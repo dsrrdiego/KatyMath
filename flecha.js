@@ -6,7 +6,7 @@ class Flecha{
         
         this.div =document.createElement('div');
         this.div.classList.add('flecha');
-        
+        this.dueño=jugador;
         document.body.appendChild(this.div);       
         flechasEnElAire.push(this);
     }
@@ -19,6 +19,7 @@ class Flecha{
                     flechasEnElAire.splice(indice,1);
                     document.body.removeChild(this.div);
                 }
+                this.dueño.puntos++;
             }
         }
 

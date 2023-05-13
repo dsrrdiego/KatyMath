@@ -1,5 +1,4 @@
 
-
 let tecla={
     ArrowLeft:false,
     ArrowRight:false,
@@ -8,9 +7,27 @@ let tecla={
 };
 let flechasEnElAire=[];
 let bolasEnElAire=[];
+let charcosEnElSuelo=[];
+let jugadoresEnJuego=[];
+const infoDiv=document.querySelector('#infoDiv')
+
 document.addEventListener("keydown", (event) => {tecla[event.code]=true;
 
 if (event.key=="x") new Bola();
+
+if (event.key=="p") {
+    
+    if (in_game) {
+        in_game=false; 
+        infoDiv.innerHTML="Pausado";
+        infoDiv.classList.remove('invisible');
+        
+    }else {
+        infoDiv.classList.add('invisible');
+        in_game=true;
+        gameLoop();
+    }
+}
 });
 document.addEventListener("keyup", (event) => {tecla[event.code]=false;});
 
@@ -21,6 +38,7 @@ const jugador1=new Jugador();
 //crear bolas
 // setInterval(()=>new Bola(),10000);
 new Bola();
+new Cofre(bolasEnElAire[0])
 
 
 function procesar_entrada_usuario() {
@@ -29,7 +47,7 @@ function procesar_entrada_usuario() {
     if (tecla.ArrowRight) jugador1.avanzar();
     if (tecla.ArrowUp){
          jugador1.saltar();
-         tecla.ArrowUp=false;
+        //  tecla.ArrowUp=false;
     }
     if (tecla.Space){
         jugador1.disparar();
@@ -39,26 +57,17 @@ function procesar_entrada_usuario() {
 
 
 function actualizar_estado() {
-    for (let bola of bolasEnElAire){
-        bola.actualizar();
-
-    }
-    for (let flecha of flechasEnElAire){
-        flecha.actualizar();
-    
-    }
+    jugadoresEnJuego.forEach((jugador)=>jugador.actualizar());
+    bolasEnElAire.forEach((bola)=>bola.actualizar());
+    flechasEnElAire.forEach((flecha)=>flecha.actualizar());
+    charcosEnElSuelo.forEach((charco)=>charco.actualizar());
 }
 
 function renderizar() {
-    jugador1.dibujar();
-    for (let flecha of flechasEnElAire){
-        flecha.dibujar();
-    
-    }
-    for (let bola of bolasEnElAire){
-        bola.dibujar();
-
-    }
+    jugadoresEnJuego.forEach((jugador)=>jugador.dibujar())
+    flechasEnElAire.forEach((flecha)=>flecha.dibujar());
+    bolasEnElAire.forEach((bola)=>bola.dibujar());
+    charcosEnElSuelo.forEach((charco)=>charco.dibujar());
 }
 
 let in_game = true;
