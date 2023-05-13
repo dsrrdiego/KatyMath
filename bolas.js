@@ -58,7 +58,7 @@ class Bola{
                 const indice=bolasEnElAire.indexOf(this);
                 bolasEnElAire.splice(indice,1);
                 document.body.removeChild(this.div);
-                new Charco(this);
+                new Charco(this.x);
             }
         }
         this.y*=this.gravedad;

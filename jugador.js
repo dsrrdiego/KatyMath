@@ -69,6 +69,8 @@ class Jugador{
         }
         for (let charco of charcosEnElSuelo){
             if (charco.pise(this.x,this.y)) this.morir();
+            // if (charco.pise(this.x,this.y)) 
+            // console.log(charco.prototype.toString.call(charco));
         }
 
 

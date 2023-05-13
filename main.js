@@ -38,7 +38,7 @@ const jugador1=new Jugador();
 //crear bolas
 // setInterval(()=>new Bola(),10000);
 new Bola();
-new Cofre(bolasEnElAire[0])
+new Cofre(bolasEnElAire[0].x)
 
 
 function procesar_entrada_usuario() {
