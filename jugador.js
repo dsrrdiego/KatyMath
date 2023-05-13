@@ -16,7 +16,7 @@ class Jugador{
          this.div.classList.add('caminar');
          this.vidas=23;
          this.puntos=0;
-         this.flechas=5;
+         this.flechas=0;
          this.saltando=false;
          jugadoresEnJuego.push(this);
 

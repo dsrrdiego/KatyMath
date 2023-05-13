@@ -123,8 +123,10 @@ h2{
 .llegada{
     position: fixed;
     background: url('images/llegada.png') center/cover;
+    z-index:10;
 }
 .cofre{
+    z-index:6;
     position: fixed;
     background: url('images/cofres.png');
 }

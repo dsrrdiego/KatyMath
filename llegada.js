@@ -13,6 +13,9 @@ class Llegada extends ElementoPiso{
     }
  actualizar(){
     super.actualizar();
+    
+    console.log(this.x+"bandera");
+    
  }
  mePiso(){
     if (!this.pisado){

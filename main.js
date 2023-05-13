@@ -37,8 +37,8 @@ const jugador1=new Jugador();
 
 //crear bolas
 setInterval(()=>{
-    const azar=Math.floor(Math.random()*2);    
-    (azar>0)? new Bola():new Cofre((Math.random()*3000)+1000);
+    const azar=Math.floor(Math.random()*5);    
+    (azar>1)? new Bola():new Cofre((Math.random()*3000)+500);
 },Math.floor((Math.random()*5000)+1000));
 new Llegada(3000);
 
