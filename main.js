@@ -1,16 +1,6 @@
 const LIMITE_Y=400; //horizonte
-
-let tecla={
-    ArrowLeft:false,
-    ArrowRight:false,
-    ArrowUp:false,
-    Space:false,
-
-    KeyA:false,
-    KeyD:false,
-    KeyW:false,
-    ControlLeft:false
-};
+const LIMITE_X=955;
+let tecla={};
 let flechasEnElAire=[];
 let bolasEnElAire=[];
 let cosasEnElPiso=[];

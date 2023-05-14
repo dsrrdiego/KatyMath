@@ -6,7 +6,7 @@ class Charco extends ElementoPiso{
         this.div.classList.add('charco');
         this.radioX=CHARCO_MEDIO_ANCHO;
         this.radioY=CHARCO_ALTO/2
-        this.y=LIMITE_Y-this.radioY;
+        this.y=LIMITE_Y-this.radioY+20;
         this.soy="charco"
 
     }

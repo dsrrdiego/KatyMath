@@ -3,9 +3,16 @@ const VELOCIDAD_RETROCESO=10;
 const MEDIOANCHO=12.5;
 const ALTO =35;
 
-const vidasDiv=document.querySelector('#vidasDiv');
-const puntosDiv=document.querySelector('#puntosDiv');
-const flechasDiv=document.querySelector('#flechasDiv');
+const vidasDiv=[];const puntosDiv=[]; const flechasDiv=[];
+
+vidasDiv[0]=document.querySelector('#vidasDiv0');
+puntosDiv[0]=document.querySelector('#puntosDiv0');
+flechasDiv[0]=document.querySelector('#flechasDiv0');
+
+vidasDiv[1]=document.querySelector('#vidasDiv1');
+puntosDiv[1]=document.querySelector('#puntosDiv1');
+flechasDiv[1]=document.querySelector('#flechasDiv1');
+
 
 let numeroDeJugador=0;
 class Jugador{
@@ -20,9 +27,9 @@ class Jugador{
         this.div=document.createElement('div');
         this.div.classList.add('jugador');
         this.div.classList.add('caminar'+this.miNumero);
-        this.x=50+this.miNumero*50;
+        this.x=250-this.miNumero*100;
         this.y=380;
-        this.vidas=23;
+        this.vidas=3;
         this.puntos=0;
         this.flechas=2;
         this.saltando=false;
@@ -33,14 +40,19 @@ class Jugador{
     }
 
     puedoMover(a){
+        this.puntos=a;
         
-        if (numeroDeJugador==2){
-            const difX=Math.abs(a-this.elOtro.x);
-            const difY=Math.abs(this.y-this.elOtro.y)
-            
+        if (a>0 && a<LIMITE_X)  {
+            if (numeroDeJugador==2){
+                const difX=Math.abs(a-this.elOtro.x);
+                const difY=Math.abs(this.y-this.elOtro.y)
+                
 
-            if (difX<MEDIOANCHO && difY<MEDIOANCHO) return false; else return true;
-        }return true;
+                if (difX<MEDIOANCHO && difY<MEDIOANCHO) return false; else return true;
+            }return true;
+        }else{
+            return false;
+        }
 
 
     }
@@ -135,9 +147,9 @@ class Jugador{
 
 
 
-        vidasDiv.innerHTML=this.vidas;
-        puntosDiv.innerHTML=this.puntos;
-        flechasDiv.innerHTML=this.flechas;
+        vidasDiv  [this.miNumero].innerHTML=this.vidas;
+        puntosDiv [this.miNumero].innerHTML=this.puntos;
+        flechasDiv[this.miNumero].innerHTML=this.flechas;
 
         }
 
