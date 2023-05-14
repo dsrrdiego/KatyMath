@@ -64,6 +64,7 @@ class Jugador{
     }
     saltar(){
         if (this.saltando==0){
+            audio.tocar('saltar.mp3')
             this.div.classList.remove('caminar'+this.miNumero);
             this.div.classList.add('saltar'+this.miNumero);
             setTimeout(()=>{
@@ -83,6 +84,7 @@ class Jugador{
         }
     }
     morir(){
+        audio.cambiar('morir.ogg');
         this.div.classList.remove('caminar'+this.miNumero);
         this.div.classList.add('morir'+this.miNumero);
         const indice=jugadoresEnJuego.indexOf(this);

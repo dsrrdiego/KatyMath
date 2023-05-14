@@ -21,7 +21,7 @@ class Llegada extends ElementoPiso{
         infoDiv.innerHTML="ganaste"
         infoDiv.classList.remove('invisible')
         in_game=false;
-        audio.cambiar("victoria");
+        audio.cambiar("victoria.mp3");
     }
 }
 }

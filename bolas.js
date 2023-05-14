@@ -49,7 +49,10 @@ class Bola{
 
         //gravedad
         if (this.y<this.yTope) this.gravedad=GRAVEADADbaja;
-        if (this.y>LIMITE_Y-this.radio) this.gravedad=GRAVEADADsube;
+        if (this.y>LIMITE_Y-this.radio) {
+            this.gravedad=GRAVEADADsube;
+            audio.tocar('revote.mp3');
+        }
         this.yTope+=0.5;
         if (this.yTope>200 ) {
             this.radio-=0.25;
@@ -94,18 +97,21 @@ class Bola{
         const hipo=Math.sqrt(difX**2 + difY**2);
         if (hipo< this.radio){
 
-            const indice = bolasEnElAire.indexOf(this);
-            bolasEnElAire.splice(indice, 1); 
-            document.body.removeChild(this.div);
-
-            new Bola(this,1);
-            new Bola(this,-1);
-            audio.tocar("boladada.ogg")
             return true;
         }
-
+        
     }
+    
+    meDio(){
+        const indice = bolasEnElAire.indexOf(this);
+        bolasEnElAire.splice(indice, 1); 
+        document.body.removeChild(this.div);
 
+        new Bola(this,1);
+        new Bola(this,-1);
+        // audio.tocar("globo.mp3")
+        audio.tocar("boladada.ogg")
+    }
 
     dibujar(){
         

@@ -27,7 +27,7 @@ estaParaEliminar(){
         this.pisado=true;
         this.elevacion=3;   
         this.animation="animation :abrirCofre 0.5s steps(3) forwards;";
-
+        audio.tocar('cofre.ogg')
         setTimeout(() => {
             new FiguraIndicadora(sorpresa[this.cosa],this.x,this.y);
         }, 200);

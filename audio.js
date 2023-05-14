@@ -4,7 +4,13 @@ class Audio{
         this.tag.volume=0.3;
         this.fx=document.querySelector('#audio2');
         this.audioToggle=true;
-        this.src='sonidos/musique.mp3';
+        this.src='musique.mp3';
+
+        this.tag.addEventListener("ended", ()=> {console.log('v1');
+         this.volver()});
+
+
+
         this.btn=document.querySelector('#audioBtn');
         this.btn.style="background:url('images/mutetrue.png')center/cover"
         this.btn.addEventListener("click",()=>{
@@ -24,14 +30,15 @@ class Audio{
         });
         this.play();
     }
-    play(){
+    play(loop){
         this.tag.play();
+        this.tag.loop=loop;
     }
     
-    cambiar(fuente){
-        this.tag.src='sonidos/'+fuente+'.mp3';
+    cambiar(fuente,loop){
+        this.tag.src='sonidos/'+fuente;
         this.tag.load();
-        if (this.audioToggle) this.play();
+        if (this.audioToggle) this.play(loop);
 
     }
     tocar(fuente){
@@ -39,6 +46,11 @@ class Audio{
         this.fx.load();
         if (this.audioToggle) this.fx.play();
 
+    }
+    volver(){
+        this.cambiar(this.src);
+        console.log('volcio');
+        
     }
 
 }

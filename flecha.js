@@ -9,11 +9,13 @@ class Flecha{
         this.dueño=jugador;
         document.body.appendChild(this.div);       
         flechasEnElAire.push(this);
+        audio.tocar('flecha.mp3');
     }
     actualizar(){
         this.y-=10;
         for (let bola of bolasEnElAire){
             if (bola.teDi(this.x,this.y)){
+                bola.meDio();
                 const indice=flechasEnElAire.indexOf(this);
                 if (indice >-1){
                     flechasEnElAire.splice(indice,1);

@@ -22,10 +22,13 @@ document.addEventListener("keydown", (event) => {tecla[event.code]=true;
             in_game=false; 
             infoDiv.innerHTML="Pausado";
             infoDiv.classList.remove('invisible');
+            audio.cambiar('pausa2.ogg',true);
             
         }else {
             infoDiv.classList.add('invisible');
             in_game=true;
+            audio.cambiar('musique.mp3',true);
+
             gameLoop();
         }
     }
