@@ -11,19 +11,19 @@ let numeroDeJugador=0;
 class Jugador{
     constructor(){
         
-         this.div=document.createElement('div');
-         this.div.classList.add('jugador1');
-         document.body.appendChild(this.div);
-         this.x=50;
-         this.y=380;
-         this.div.classList.add('caminar');
-         this.vidas=23;
-         this.puntos=0;
-         this.flechas=2;
-         this.saltando=false;
-         jugadoresEnJuego.push(this);
-         this.miNumero=numeroDeJugador;
-         numeroDeJugador++;
+        this.miNumero=numeroDeJugador;
+        numeroDeJugador++;
+        this.div=document.createElement('div');
+        this.div.classList.add('jugador');
+        this.div.classList.add('caminar');
+        this.x=50+this.miNumero*50;
+        this.y=380;
+        this.vidas=23;
+        this.puntos=0;
+        this.flechas=2;
+        this.saltando=false;
+        jugadoresEnJuego.push(this);
+        document.body.appendChild(this.div);
 
 
     }
