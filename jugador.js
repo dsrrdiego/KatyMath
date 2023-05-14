@@ -23,6 +23,7 @@ class Jugador{
         if (numeroDeJugador==2){
             this.elOtro=jugadoresEnJuego[0];
             jugadoresEnJuego[0].elOtro=this;
+            document.querySelector('#hud1').classList.remove('invisible');
         }
         this.div=document.createElement('div');
         this.div.classList.add('jugador');
@@ -40,8 +41,6 @@ class Jugador{
     }
 
     puedoMover(a){
-        this.puntos=a;
-        
         if (a>0 && a<LIMITE_X)  {
             if (numeroDeJugador==2){
                 const difX=Math.abs(a-this.elOtro.x);
@@ -132,13 +131,14 @@ class Jugador{
                 case "charco":
                     this.morir();
                     break;
-                case "flechas":
+                case "arcoYflecha":
                     this.flechas+=5;
                     break;
                 case "vida":
                     this.vida++;
                     break;
-                case "bola":
+                case "esferat0":
+                    new Bola();
                     new Bola();
                     break;
 

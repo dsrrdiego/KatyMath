@@ -9,16 +9,19 @@ class ElementoPiso{
         
 
     }
+    estaParaEliminar(){
+        if (this.x<-10 || this.y<-10){
+            const indice=cosasEnElPiso.indexOf(this);
+            cosasEnElPiso.splice(indice,1);
+            document.body.removeChild(this.div);
+            
+        }
+
+    }
     actualizar(){
         
             this.x-=0.4;
-
-            if (this.x<-10 || this.y<-10){
-                const indice=cosasEnElPiso.indexOf(this);
-                cosasEnElPiso.splice(indice,1);
-                document.body.removeChild(this.div);
-                
-            }
+            this.estaParaEliminar();
 
     }
     
@@ -36,3 +39,4 @@ class ElementoPiso{
     }
 
 }
+

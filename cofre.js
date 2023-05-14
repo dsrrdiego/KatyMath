@@ -1,3 +1,4 @@
+const sorpresa=["estrella","arcoYflecha","arcoYflecha","arcoYflecha","arcoYflecha","arcoYflecha","vida","esferat0"]
 const COFRE_ANCHO=60;
 const COFRE_ALTO=75;
 class Cofre extends ElementoPiso{
@@ -10,8 +11,13 @@ class Cofre extends ElementoPiso{
         this.soy="cofre";
         this.elevacion=0;
         this.pisado=false;
+        this.cosa=Math.floor(Math.random()*sorpresa.length);
 
     }
+
+estaParaEliminar(){
+    super.estaParaEliminar();
+}
  actualizar(){
     this.y-=this.elevacion
     super.actualizar();
@@ -19,19 +25,30 @@ class Cofre extends ElementoPiso{
  mePiso(){
     if (!this.pisado){
         this.pisado=true;
-        const sorpresa=["flechas","flechas","flechas","flechas","flechas","flechas","flechas","flechas","vida","bola"]
-        this.elevacion=2;   
+        this.elevacion=3;   
         this.animation="animation :abrirCofre 0.5s steps(3) forwards;";
-        let cosa=Math.floor(Math.random()*sorpresa.length);
 
-        infoDiv.innerHTML=sorpresa[cosa];
-        infoDiv.classList.remove('invisible');
         setTimeout(() => {
-            infoDiv.classList.add('invisible');
-            
-        }, 3000);
+            new FiguraIndicadora(sorpresa[this.cosa],this.x,this.y);
+        }, 200);
 
-        return sorpresa[cosa];
+      
+        return sorpresa[this.cosa];
     }
 }
+}
+
+
+class Estrella extends Cofre{
+    constructor(){
+        super(470);
+        this.y=100;
+        this.cosa=0;
+    }
+    actualizar(){
+    this.y-=this.elevacion
+
+        super.estaParaEliminar();
+    }
+
 }

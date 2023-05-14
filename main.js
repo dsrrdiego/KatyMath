@@ -5,6 +5,7 @@ let flechasEnElAire=[];
 let bolasEnElAire=[];
 let cosasEnElPiso=[];
 let jugadoresEnJuego=[];
+let figuraIndicadoraEnElAire=[];
 const infoDiv=document.querySelector('#infoDiv')
 
 document.addEventListener("keydown", (event) => {tecla[event.code]=true;
@@ -38,6 +39,9 @@ setInterval(()=>{
 },Math.floor((Math.random()*5000)+4000));
 new Llegada(3000);
 
+new Cofre(500);
+new Estrella();
+
 
 function procesar_entrada_usuario() {
     jugadoresEnJuego.forEach((jugador)=>jugador.procesarEntrada());
@@ -51,6 +55,8 @@ function actualizar_estado() {
     bolasEnElAire.forEach((bola)=>bola.actualizar());
     flechasEnElAire.forEach((flecha)=>flecha.actualizar());
     cosasEnElPiso.forEach((charco)=>charco.actualizar());
+    figuraIndicadoraEnElAire.forEach((figura)=>figura.actualizar());
+
 }
 
 function renderizar() {
@@ -58,6 +64,7 @@ function renderizar() {
     flechasEnElAire.forEach((flecha)=>flecha.dibujar());
     bolasEnElAire.forEach((bola)=>bola.dibujar());
     cosasEnElPiso.forEach((charco)=>charco.dibujar());
+    figuraIndicadoraEnElAire.forEach((figura)=>figura.dibujar());
 }
 
 let in_game = true;
