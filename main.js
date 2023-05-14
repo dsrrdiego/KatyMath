@@ -7,9 +7,11 @@ let cosasEnElPiso=[];
 let jugadoresEnJuego=[];
 let figuraIndicadoraEnElAire=[];
 const infoDiv=document.querySelector('#infoDiv')
+let in_game = true;
 
 // const audio=new Audio();
 let audio;
+
 
 
 document.addEventListener("keydown", (event) => {tecla[event.code]=true;
@@ -74,7 +76,6 @@ function renderizar() {
     figuraIndicadoraEnElAire.forEach((figura)=>figura.dibujar());
 }
 
-let in_game = true;
 function gameLoop() {
     procesar_entrada_usuario();
     actualizar_estado();
@@ -85,4 +86,4 @@ function gameLoop() {
     }
 }
 
-gameLoop();
+bienvenida();
