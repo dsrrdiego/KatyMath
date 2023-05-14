@@ -24,6 +24,7 @@ estaParaEliminar(){
  }
  mePiso(){
     if (!this.pisado){
+        audio.tocar("victoria");
         this.pisado=true;
         this.elevacion=3;   
         this.animation="animation :abrirCofre 0.5s steps(3) forwards;";
