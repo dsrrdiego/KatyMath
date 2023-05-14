@@ -13,9 +13,13 @@ class Jugador{
         
         this.miNumero=numeroDeJugador;
         numeroDeJugador++;
+        if (numeroDeJugador==2){
+            this.elOtro=jugadoresEnJuego[0];
+            jugadoresEnJuego[0].elOtro=this;
+        }
         this.div=document.createElement('div');
         this.div.classList.add('jugador');
-        this.div.classList.add('caminar');
+        this.div.classList.add('caminar'+this.miNumero);
         this.x=50+this.miNumero*50;
         this.y=380;
         this.vidas=23;
@@ -27,31 +31,53 @@ class Jugador{
 
 
     }
+
+    puedoMover(a){
+        
+        if (numeroDeJugador==2){
+            const difX=Math.abs(a-this.elOtro.x);
+            const difY=Math.abs(this.y-this.elOtro.y)
+            
+
+            if (difX<MEDIOANCHO && difY<MEDIOANCHO) return false; else return true;
+        }return true;
+
+
+    }
     avanzar(){
-        this.x+=VELOCIDAD_X;
+        if (this.puedoMover(this.x+VELOCIDAD_X)) this.x+=VELOCIDAD_X;
         
     }
     retroceder(){
-        this.x-=VELOCIDAD_RETROCESO;
+        if (this.puedoMover(this.x-VELOCIDAD_RETROCESO)) this.x-=VELOCIDAD_RETROCESO;
     }
     saltar(){
         if (this.saltando==0){
-            this.div.classList.remove('caminar');
-            this.div.classList.add('saltar');
+            this.div.classList.remove('caminar'+this.miNumero);
+            this.div.classList.add('saltar'+this.miNumero);
             setTimeout(()=>{
-                this.div.classList.remove('saltar');
-                this.div.classList.add('caminar');
+                this.div.classList.remove('saltar'+this.miNumero);
+                this.div.classList.add('caminar'+this.miNumero);
             },3000)
             this.saltando=0.1;
         }
     }
+    estaSaltando(){
+        if (this.saltando!=0){
+            this.saltando+=0.1;
+            const seno=Math.sin(this.saltando)*10;
+            this.y-=seno;
+            if (this.saltando>6) this.saltando=0;
+            
+        }
+    }
     morir(){
-        this.div.classList.remove('caminar');
-        this.div.classList.add('morir');
+        this.div.classList.remove('caminar'+this.miNumero);
+        this.div.classList.add('morir'+this.miNumero);
         const indice=jugadoresEnJuego.indexOf(this);
         jugadoresEnJuego.splice(indice,1);
         
-        if (this.vidas==1){
+        if (this.vidas<=1){
             setTimeout(() => {
                 infoDiv.innerHTML="Perdiste";
                 infoDiv.classList.remove('invisible');
@@ -59,11 +85,11 @@ class Jugador{
             }, 1000);
         }else{
             setTimeout(()=>{
-                this.div.classList.remove('morir');
-                this.div.classList.add('caminar');
+                this.div.classList.remove('morir'+this.miNumero);
+                this.div.classList.add('caminar'+this.miNumero);
                 jugadoresEnJuego.push(this);
-                this.x=50;
-                // this.y=100;
+                this.x=250;
+                this.y=100;
                 
             },1000)
         }
@@ -78,23 +104,17 @@ class Jugador{
             this.flechas--;
         }
     }
-    estaSaltando(){
-        if (this.saltando!=0){
-            this.saltando+=0.1;
-            const seno=Math.sin(this.saltando)*10;
-            this.y-=seno;
-            if (this.saltando>6) this.saltando=0;
-            
-        }
-    }
+    
     actualizar(){
         this.estaSaltando();
+        if (this.saltando==0&& this.y<LIMITE_Y-15){ this.y+=5;
+
+        }
         for (let bola of bolasEnElAire){
             if (bola.teDi(this.x,this.y)) this.morir();
         }
         for (let cosa of cosasEnElPiso){
             const sorpresa=cosa.pise(this.x,this.y);
-            if (sorpresa!=null) console.log(sorpresa);
             switch (sorpresa){
                 
                 case "charco":

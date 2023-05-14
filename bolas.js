@@ -1,4 +1,3 @@
-const LIMITE_Y=400;
 const GRAVEADADsube=0.95;
 const GRAVEADADbaja=1.05;
 let bolaNumero=-1;

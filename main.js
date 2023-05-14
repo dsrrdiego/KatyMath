@@ -1,3 +1,4 @@
+const LIMITE_Y=400; //horizonte
 
 let tecla={
     ArrowLeft:false,
@@ -44,7 +45,7 @@ const jugador2=new Jugador();
 setInterval(()=>{
     const azar=Math.floor(Math.random()*5);    
     (azar>1)? new Bola():new Cofre((Math.random()*3000)+500);
-},Math.floor((Math.random()*5000)+1000));
+},Math.floor((Math.random()*5000)+4000));
 new Llegada(3000);
 
 

@@ -47,17 +47,29 @@ h2{
     height: 35px;
     z-index:10;
 }
-.caminar{
-    background: url('images/walk.png') ;
+.caminar0{
+    background: url('images/jugador0/walk.png') ;
+    animation: desplazar 1s steps(4) infinite;
+}
+.caminar1{
+    background: url('images/jugador1/caminar.png') ;
     animation: desplazar 1s steps(4) infinite;
 }
 
-.saltar{
-    background: url('images/saltar.png') ;
+.saltar0{
+    background: url('images/jugador0/saltar.png') ;
     animation: saltar 3s steps(4);
 }
-.morir{
-    background: url('images/morir.png') ;
+.saltar1{
+    background: url('images/jugador1/saltar.png') ;
+    animation: saltar 3s steps(4);
+}
+.morir0{
+    background: url('images/jugador0/morir.png') ;
+    animation: morir 1s steps(8);
+}
+.morir1{
+    background: url('images/jugador1/morir.png') ;
     animation: morir 1s steps(8);
 }
 
