@@ -8,13 +8,14 @@ let jugadoresEnJuego=[];
 let figuraIndicadoraEnElAire=[];
 const infoDiv=document.querySelector('#infoDiv')
 
-const audio=new Audio();
+// const audio=new Audio();
+let audio;
 
 
 document.addEventListener("keydown", (event) => {tecla[event.code]=true;
 
     if (event.key=="x") new Bola();
-
+    if (event.key=="q") audio=new Audio();
     if (event.key=="p") {
         
         if (in_game) {
@@ -40,7 +41,7 @@ setInterval(()=>{
     const azar=Math.floor(Math.random()*6);    
     (azar>2)? new Bola():new Cofre((Math.random()*3000)+500);
 },Math.floor((Math.random()*5000)+3000));
-new Llegada(500);
+new Llegada(5000);
 
 new Cofre(500);
 new Estrella();

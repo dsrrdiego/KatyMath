@@ -22,8 +22,6 @@ class Llegada extends ElementoPiso{
         infoDiv.classList.remove('invisible')
         in_game=false;
         audio.cambiar("victoria");
-        // audio.load();
-        // audio.play();
     }
 }
 }

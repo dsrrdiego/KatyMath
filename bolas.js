@@ -100,6 +100,7 @@ class Bola{
 
             new Bola(this,1);
             new Bola(this,-1);
+            audio.tocar("boladada.ogg")
             return true;
         }
 

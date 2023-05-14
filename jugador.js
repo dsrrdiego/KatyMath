@@ -32,7 +32,7 @@ class Jugador{
         this.y=380;
         this.vidas=3;
         this.puntos=0;
-        this.flechas=2;
+        this.flechas=20;
         this.saltando=false;
         jugadoresEnJuego.push(this);
         document.body.appendChild(this.div);

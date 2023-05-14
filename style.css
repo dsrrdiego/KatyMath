@@ -2,6 +2,15 @@ body{
     margin:0;
     height:480px;
 }
+#audioBtn{
+    position:fixed;
+    width:30px;
+    height: 30px;
+    left:0px;
+    /* left:calc(100% - 30px); */
+    z-index:20;
+    /* background: url('images/mute.png') center/cover; */
+}
 .hud{
     position: fixed;
     display:flex;
