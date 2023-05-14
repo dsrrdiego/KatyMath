@@ -3,7 +3,12 @@ let tecla={
     ArrowLeft:false,
     ArrowRight:false,
     ArrowUp:false,
-    Space:false
+    Space:false,
+
+    KeyA:false,
+    KeyD:false,
+    KeyW:false,
+    ControlLeft:false
 };
 let flechasEnElAire=[];
 let bolasEnElAire=[];
@@ -13,27 +18,27 @@ const infoDiv=document.querySelector('#infoDiv')
 
 document.addEventListener("keydown", (event) => {tecla[event.code]=true;
 
-if (event.key=="x") new Bola();
+    if (event.key=="x") new Bola();
 
-if (event.key=="p") {
-    
-    if (in_game) {
-        in_game=false; 
-        infoDiv.innerHTML="Pausado";
-        infoDiv.classList.remove('invisible');
+    if (event.key=="p") {
         
-    }else {
-        infoDiv.classList.add('invisible');
-        in_game=true;
-        gameLoop();
+        if (in_game) {
+            in_game=false; 
+            infoDiv.innerHTML="Pausado";
+            infoDiv.classList.remove('invisible');
+            
+        }else {
+            infoDiv.classList.add('invisible');
+            in_game=true;
+            gameLoop();
+        }
     }
-}
 });
 document.addEventListener("keyup", (event) => {tecla[event.code]=false;});
 
 
 const jugador1=new Jugador();
-
+// const jugador2=new Jugador();
 
 //crear bolas
 setInterval(()=>{
@@ -44,17 +49,9 @@ new Llegada(3000);
 
 
 function procesar_entrada_usuario() {
-    // console.log(tecla);
-    if (tecla.ArrowLeft) jugador1.retroceder();
-    if (tecla.ArrowRight) jugador1.avanzar();
-    if (tecla.ArrowUp){
-         jugador1.saltar();
-         tecla.ArrowUp=false;
-    }
-    if (tecla.Space){
-        jugador1.disparar();
-        tecla.Space=false;       
-    } 
+    jugadoresEnJuego.forEach((jugador)=>jugador.procesarEntrada());
+
+    
 }
 
 

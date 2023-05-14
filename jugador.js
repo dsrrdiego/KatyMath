@@ -7,18 +7,23 @@ const vidasDiv=document.querySelector('#vidasDiv');
 const puntosDiv=document.querySelector('#puntosDiv');
 const flechasDiv=document.querySelector('#flechasDiv');
 
-
+let numeroDeJugador=0;
 class Jugador{
     constructor(){
-         this.div=document.querySelector('#jugador1');
+        
+         this.div=document.createElement('div');
+         this.div.classList.add('jugador1');
+         document.body.appendChild(this.div);
          this.x=50;
          this.y=380;
          this.div.classList.add('caminar');
          this.vidas=23;
          this.puntos=0;
-         this.flechas=0;
+         this.flechas=2;
          this.saltando=false;
          jugadoresEnJuego.push(this);
+         this.miNumero=numeroDeJugador;
+         numeroDeJugador++;
 
 
     }
@@ -120,5 +125,30 @@ class Jugador{
             // this.div.style="left:"+(this.x-MEDIOANCHO)+"px;";
             this.div.style.cssText="left:"+(this.x-MEDIOANCHO)+"px; top:"+(this.y-ALTO/2)+"px;";
     }
+    procesarEntrada(){
+    if (this.miNumero==0){
+    if (tecla.ArrowLeft) this.retroceder();
+    if (tecla.ArrowRight) this.avanzar();
+    if (tecla.ArrowUp){
+         this.saltar();
+         tecla.ArrowUp=false;
+    }
+    if (tecla.Space){
+        this.disparar();
+        tecla.Space=false;       
+    } 
+}else{
+    if (tecla.KeyA) this.retroceder();
+    if (tecla.KeyD) this.avanzar();
+    if (tecla.KeyW){
+         this.saltar();
+         tecla.KeyW=false;
+    }
+    if (tecla.ControlLeft){
+        this.disparar();
+        tecla.ControlLeft=false;       
+    }
+}
+}
 
 }
