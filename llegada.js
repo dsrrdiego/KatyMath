@@ -20,6 +20,7 @@ class Llegada extends ElementoPiso{
         this.pisado=true;
         infoDiv.innerHTML="ganaste"
         infoDiv.classList.remove('invisible')
+        in_game=false;
     }
 }
 }
