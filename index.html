@@ -8,38 +8,44 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <button id="play">Play</button>
     <div id="bienvenida">
-        <button id="play">Play</button>
-
+        <div id="UnJugadorDiv">
+            <h2>Katt</h2>
+            <h2>Matt</h2>
+        </div>
     </div>
     <button id="audioBtn"></button>
-    <div id="hud0" class="hud">
-        <h2>Puntos:</h2>
-        <h2 id="puntosDiv0">0</h2>
-        <h2>Flechas:</h2>
-        <h2 id="flechasDiv0">5</h2>
-        <h2>Vidas:</h2>
-        <h2 id="vidasDiv0">0</h2>
+    <div id="todo">
+        
+        <div id="hud0" class="hud">
+            <h2>Puntos:</h2>
+            <h2 id="puntosDiv0">0</h2>
+            <h2>Flechas:</h2>
+            <h2 id="flechasDiv0">5</h2>
+            <h2>Vidas:</h2>
+            <h2 id="vidasDiv0">0</h2>
+        </div>
+        <div id="hud1" class="hud invisible" >
+            <h2>Puntos:</h2>
+            <h2 id="puntosDiv1">0</h2>
+            <h2>Flechas:</h2>
+            <h2 id="flechasDiv1">5</h2>
+            <h2>Vidas:</h2>
+            <h2 id="vidasDiv1">0</h2>
+        </div>
+        
+        <div id="cielo"></div>
+        <div id="montañas"></div>
+        <div id="tierra"></div>
+        <div id="jugador1"></div>
+        <div id="infoDiv" class="invisible">
+            <h1>Perdiste</h1>
+        </div>
+    </body>
     </div>
-    <div id="hud1" class="hud invisible" >
-        <h2>Puntos:</h2>
-        <h2 id="puntosDiv1">0</h2>
-        <h2>Flechas:</h2>
-        <h2 id="flechasDiv1">5</h2>
-        <h2>Vidas:</h2>
-        <h2 id="vidasDiv1">0</h2>
-    </div>
-
-    <div id="cielo"></div>
-    <div id="montañas"></div>
-    <div id="tierra"></div>
-    <div id="jugador1"></div>
-    <div id="infoDiv" class="invisible">
-        <h1>Perdiste</h1>
-    </div>
-</body>
-<audio id="audio" src="sonidos/musique.mp3"></audio>
-<audio id="audio2"></audio>
+    <audio id="audio" src="sonidos/musique.mp3"></audio>
+<!-- <audio id="audio2"></audio> -->
 <script src="ElementoPiso.js"></script>
 <script src="charco.js"></script>
 <script src="cofre.js"></script>

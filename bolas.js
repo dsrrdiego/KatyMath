@@ -51,7 +51,7 @@ class Bola{
         if (this.y<this.yTope) this.gravedad=GRAVEADADbaja;
         if (this.y>LIMITE_Y-this.radio) {
             this.gravedad=GRAVEADADsube;
-            audio.tocar('revote.mp3');
+            audio.tocar('revote.ogg');
         }
         this.yTope+=0.5;
         if (this.yTope>200 ) {
@@ -109,8 +109,7 @@ class Bola{
 
         new Bola(this,1);
         new Bola(this,-1);
-        // audio.tocar("globo.mp3")
-        audio.tocar("boladada.ogg")
+        audio.tocar("globo.ogg")
     }
 
     dibujar(){

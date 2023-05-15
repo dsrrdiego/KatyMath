@@ -8,6 +8,7 @@ class Charco extends ElementoPiso{
         this.radioY=CHARCO_ALTO/2
         this.y=LIMITE_Y-this.radioY+20;
         this.soy="charco"
+        audio.tocar("boladada.ogg")
 
     }
     mePiso(){

@@ -4,7 +4,7 @@ class Audio{
         this.tag.volume=0.3;
         this.fx=document.querySelector('#audio2');
         this.audioToggle=true;
-        this.src='musique.mp3';
+        this.src='cancion.ogg';
 
         this.tag.addEventListener("ended", ()=> {console.log('v1');
          this.volver()});
@@ -42,10 +42,10 @@ class Audio{
 
     }
     tocar(fuente){
-        this.fx.src='sonidos/'+fuente;
-        this.fx.load();
-        if (this.audioToggle) this.fx.play();
-
+        const rocola=document.createElement('audio');
+        rocola.src='sonidos/'+fuente;
+        rocola.load();
+        if (this.audioToggle) rocola.play();
     }
     volver(){
         this.cambiar(this.src);

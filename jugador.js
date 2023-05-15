@@ -89,22 +89,34 @@ class Jugador{
         this.div.classList.add('morir'+this.miNumero);
         const indice=jugadoresEnJuego.indexOf(this);
         jugadoresEnJuego.splice(indice,1);
-        
+        // document.body.style="filter: grayscale();"
+        document.querySelector('#todo').style="animation: jugadorMuerto 3s linear; ";
+        setTimeout(() => {
+            this.x=-100;
+            this.dibujar();
+        }, 1000);
+
+
         if (this.vidas<=1){
             setTimeout(() => {
-                infoDiv.innerHTML="Perdiste";
-                infoDiv.classList.remove('invisible');
-                this.div.style="display:none;";
+                if (jugadoresEnJuego.length==0) {in_game=false;
+                    document.querySelector('#todo').style="animation: jugadorMuerto 1s linear forwards; ";
+                    audio.cambiar('pausa2.ogg',true);
+                    infoDiv.innerHTML="Perdiste";
+                    infoDiv.classList.remove('invisible');
+                    this.div.style="display:none;";
+                }
             }, 1000);
         }else{
             setTimeout(()=>{
+                document.querySelector('#todo').style="animation: jugadorVivo 1s linear; ";
                 this.div.classList.remove('morir'+this.miNumero);
                 this.div.classList.add('caminar'+this.miNumero);
                 jugadoresEnJuego.push(this);
                 this.x=250;
                 this.y=100;
                 
-            },1000)
+            },3000)
         }
         this.vidas--;
                     
