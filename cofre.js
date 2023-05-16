@@ -1,6 +1,6 @@
 const sorpresa=["estrella","arcoYflecha","arcoYflecha","arcoYflecha","arcoYflecha","arcoYflecha","vida","esferat0"]
-const COFRE_ANCHO=60;
-const COFRE_ALTO=75;
+const COFRE_ANCHO=84;
+const COFRE_ALTO=70;
 class Cofre extends ElementoPiso{
     constructor(x){
         super(x);
@@ -25,12 +25,13 @@ estaParaEliminar(){
  mePiso(){
     if (!this.pisado){
         this.pisado=true;
-        this.elevacion=3;   
+        this.elevacion=0.5;   
         this.animation="animation :abrirCofre 0.5s steps(3) forwards;";
         audio.tocar('cofre.ogg')
         setTimeout(() => {
             new FiguraIndicadora(sorpresa[this.cosa],this.x,this.y);
-        }, 200);
+            this.elevacion=3;
+        }, 1000);
 
       
         return sorpresa[this.cosa];

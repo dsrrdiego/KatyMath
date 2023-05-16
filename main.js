@@ -1,4 +1,5 @@
 "use strict"
+let nivel=1;
 
 const LIMITE_Y=400; //horizonte
 const LIMITE_X=955;

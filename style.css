@@ -156,13 +156,21 @@ body{
 
 .llegada{
     position: fixed;
-    background: url('images/llegada.png') center/cover;
+    background: url('images/bandera.png') center/cover;
     z-index:10;
+    animation: bandera 2s steps(5) infinite;
 }
+@keyframes bandera {
+    0%{background-position-x: 0px;}
+    100%{background-position-x: -1545px;}
+    
+}
+
 .cofre{
     z-index:6;
     position: fixed;
-    background: url('images/cofres.png');
+    background: url('images/cofres2.png');
+    
 }
 
 
@@ -171,8 +179,20 @@ body{
         background-position-x: 0px;
     }
     100%{
-        background-position-x: -220px;
+        background-position-x: -250px;
     }
+}
+
+@keyframes aparecer {
+    0%{ opacity: 0;}
+    30%{opacity:1;    }
+    50%{opacity:0.3}
+    100%{filter:blur(2px);
+        width:50%;
+        height: 50%;
+        transform: translate(-50%, -50%);
+
+        opacity:0;    }
 }
 @keyframes jugadorMuerto {
     0%{filter:none();}

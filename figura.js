@@ -11,7 +11,7 @@ class FiguraIndicadora{
         document.body.appendChild(this.div);
     }
     actualizar(){
-        this.y-=5;
+        this.y-=3.5;
         if (this.y<-10){
             const indice=figuraIndicadoraEnElAire.indexOf(this);
             figuraIndicadoraEnElAire.splice(indice,1);
@@ -21,7 +21,7 @@ class FiguraIndicadora{
     }
     dibujar(){
         
-        this.div.style=`position:fixed; background: url('images/${this.figura}.png') center/cover; width:${this.ancho}px; height:${this.alto}px; top:${this.y}px;left:${this.x}px;z-index:10`
+        this.div.style=`position:fixed; background: url('images/${this.figura}.png') ;background-size: contain;background-repeat: no-repeat; width:${this.ancho}px; height:${this.alto}px; top:${this.y}px;left:${this.x}px;z-index:10;animation: aparecer 2s forwards;`
 
     }
 
