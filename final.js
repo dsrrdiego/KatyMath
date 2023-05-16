@@ -51,6 +51,11 @@ function final(puntos){
             listaNombres[n].innerHTML="__________";
             listaPuntos[n].innerHTML=puntos;
             
+            input.addEventListener('input',function (){
+                listaNombres[n].innerHTML=this.value;
+                console.log('cambiaso');});
+            
+
             const okBtn=document.querySelector('#finalBtn')
             okBtn.addEventListener('click',()=>agregar(puntos,okBtn,listaNombres[n]));
             
@@ -61,8 +66,8 @@ function final(puntos){
 }
 
 function agregar(puntos,okBtn,item){
-    const nombre=input.value;
-    item.innerHTML=nombre;
+    // const nombre=input.value;
+    item.innerHTML=input.value;
             
             const fechaVencimiento = new Date('2024-12-31').toUTCString();
 
