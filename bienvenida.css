@@ -2,7 +2,7 @@
 #bienvenida{
     position:fixed;
     width:500px;
-    height:355px;
+    height:380px;
     background-color: rgba(0, 123, 255, 0.765);
     top: calc(50% - 200px);
     left:calc(50% - 250px);
@@ -100,4 +100,17 @@
     position:fixed;
     top: 315px;
     left:calc(50% - 40px);
+}
+
+#controles{
+    position: fixed;
+    height: 200px;
+    width:400px;
+    left: calc(50% - 200px);
+    top: calc(50% - 100px);
+    background:url('images/teclas.jpeg') center/cover;
+    z-index: 40;
+    opacity: 1;
+    border: 2px solid red;
+    border-radius: 5%;
 }

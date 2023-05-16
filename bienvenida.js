@@ -11,6 +11,7 @@ function bienvenida(){
         document.querySelector('#Matt').addEventListener('click',()=>inicializar1(1));
         document.querySelector('#MattYKattDiv').addEventListener('click',()=>inicializar2(0,1));
         document.querySelector('#KattYMattDiv').addEventListener('click',()=>inicializar2(1,0));
+        document.querySelector('#verControles').addEventListener('click',verControles);
     // }else{
     //     document.querySelector('#bienvenida').classList.add('invisible')        ;
     //     console.log('enpp');
@@ -104,4 +105,20 @@ reloj=setInterval(()=>{
 in_game=true;
 new Llegada(3000);
 gameLoop();
+}
+
+
+function verControles(){
+    const controles= document.querySelector('#controles');
+    controles.classList.remove('invisible');
+    setTimeout(() => {
+
+        controles.style="animation: aparecer 3s; "
+        setTimeout(() => {
+            controles.classList.add('invisible');        
+            controles.style="animation: none;"
+            
+        }, 3000);
+
+    }, 5000);
 }

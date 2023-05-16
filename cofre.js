@@ -1,6 +1,6 @@
 const sorpresa=["estrella","arcoYflecha","arcoYflecha","arcoYflecha","arcoYflecha","arcoYflecha","vida","esferat0"]
 const COFRE_ANCHO=84;
-const COFRE_ALTO=70;
+const COFRE_ALTO=60;
 class Cofre extends ElementoPiso{
     constructor(x){
         super(x);
@@ -31,7 +31,8 @@ estaParaEliminar(){
         setTimeout(() => {
             new FiguraIndicadora(sorpresa[this.cosa],this.x,this.y);
             this.elevacion=3;
-        }, 1000);
+            audio.tocar('moneda.ogg');
+        }, 700);
 
       
         return sorpresa[this.cosa];
