@@ -11,6 +11,7 @@ class Flecha{
         flechasEnElAire.push(this);
         audio.tocar('flecha.mp3');
     }
+    
     actualizar(){
         this.y-=10;
         for (let bola of bolasEnElAire){

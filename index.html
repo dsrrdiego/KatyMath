@@ -11,6 +11,7 @@
 </head>
 <div id="jugador1"></div>
 <body>
+    <!-- pantalla de bienvenida -->
     <div id="bienvenida">
         <div id="jugadoresDiv">
             <div id="Katt" class="botoneable cadaJugador">
@@ -37,10 +38,13 @@
         <div id="verControles" class="botoneable">Ver Controles </div>
 
     </div>
+
+    <!-- controles de teclado y boton audio -->
     <div id="controles" class="invisible"></div>
     <button id="audioBtn" class="invisible"></button>
+
+    <!-- escena -->
     <div id="todo">
-        
         <div id="hud0" class="hud invisible">
             <h2>Puntos:</h2>
             <h2 id="puntosDiv0">0</h2>
@@ -49,6 +53,7 @@
             <h2>Vidas:</h2>
             <h2 id="vidasDiv0">0</h2>
         </div>
+
         <div id="hud1" class="hud invisible" >
             <h2>Puntos:</h2>
             <h2 id="puntosDiv1">0</h2>
@@ -61,54 +66,48 @@
         <div id="cielo"></div>
         <div id="montañas"></div>
         <div id="tierra"></div>
-        <div id="infoDiv" class="invisible">
-            <h1>Perdiste</h1>
-        </div>
-       
-        <div id="final" class="invisible">
-            <div id="listas">
-                <ol id="listaNombres">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ol>
-                <ul id="listaPuntos">
-                    <li>0</li>
-                    <li>0</li>
-                    <li>0</li>
-                    <li>0</li>
-                    <li>0</li>
-                    <li>0</li>
-                    <li>0</li>
-                    <li>0</li>
-                    <li>0</li>
-                    <li>0</li>
-                </ul>
-            </div>
-            <div id="cajitaBotones">
-    
-                <input type="text" name="" id="input" placeholder="Tu Nombre">
-                <button id="finalBtn">ok</button>
-                <button id="otraVezBtn" >De Nuevo!!</button>
-            </div>
-            </div>
-        </div>
-
-        
-
-
-
+        <div id="infoDiv" class="invisible"><h1>Perdiste</h1></div>
     </div>
+
+
+
+    <div id="final" class="invisible">
+        <div id="listas">
+            <ol id="listaNombres">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+            <ul id="listaPuntos">
+                <li>0</li>
+                <li>0</li>
+                <li>0</li>
+                <li>0</li>
+                <li>0</li>
+                <li>0</li>
+                <li>0</li>
+                <li>0</li>
+                <li>0</li>
+                <li>0</li>
+            </ul>
+        </div>
+        <div id="cajitaBotones">
+            <input type="text" name="" id="input" placeholder="Tu Nombre">
+            <button id="finalBtn">ok</button>
+            <button id="otraVezBtn" >De Nuevo!!</button>
+        </div>
+    </div>
+
 </body>
-    <audio id="audio" src="sonidos/musique.mp3"></audio>
-<!-- <audio id="audio2"></audio> -->
+
+<audio id="audio" src="sonidos/musique.mp3"></audio>
 <script src="ElementoPiso.js"></script>
 <script src="charco.js"></script>
 <script src="cofre.js"></script>

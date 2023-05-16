@@ -7,16 +7,15 @@ function final(puntos){
     
     const input=document.querySelector('#input')
     document.querySelector('#otraVezBtn').addEventListener('click',()=>location.reload());
-    //descomentar
     document.querySelector('#infoDiv').classList.add('invisible');
     document.querySelector('#todo').style="animation: jugadorVivo 1s linear; ";
     
-    
-    const cookies = document.cookie.split(";"); // Divide las cookies en un array
+    //se cargan los cookies    
+    const cookies = document.cookie.split(";"); 
     
     for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim(); // Elimina espacios en blanco al inicio y final de la cookie
-        const [nombreCook, valor] = cookie.split("="); // Divide el nombre y el valor de la cookie
+        const cookie = cookies[i].trim(); 
+        const [nombreCook, valor] = cookie.split("="); 
         
         if (nombreCook === "miCookie") {
             const nombreJugador=JSON.parse(valor)
@@ -35,14 +34,17 @@ function final(puntos){
         }
     }
 
+
+
     ///
+
+    //Acomodar en la lista de acuerdo al puntaje
     let listaNombresDiv=document.querySelector('#listaNombres');
     let listaPuntosDiv=document.querySelector('#listaPuntos');
-    
-    
     for (let n=0;n<10;n++){
         if (puntos>=listaPuntos[n].innerHTML) {
             
+
             for (let x=9;x>n;x--){
                 listaNombres[x].innerHTML=listaNombres[x-1].innerHTML;
                 listaPuntos[x].innerHTML =listaPuntos[x-1].innerHTML ;
@@ -67,33 +69,26 @@ function final(puntos){
     
 }
 
+//agregar a la lista y guardar los cookies
 function agregar(puntos,okBtn,item,itemPuntos){
-    // const nombre=input.value;
     item.innerHTML=input.value;
     item.style="font-size: medium";
     itemPuntos.style="font-size: medium";
-            
-            const fechaVencimiento = new Date('2024-12-31').toUTCString();
 
+    const fechaVencimiento = new Date('2024-12-31').toUTCString();
+    let nuevaLista=[];
+    for (let z=0;z<10;z++){
+        nuevaLista.push(listaNombres[z].innerHTML)
+    }
+    nuevaLista = JSON.stringify(nuevaLista);
+    document.cookie = "miCookie="+nuevaLista+"; expires=" + fechaVencimiento + "; path=/";
 
-
-            let nuevaLista=[];
-            for (let z=0;z<10;z++){
-                nuevaLista.push(listaNombres[z].innerHTML)
-            }
-            nuevaLista = JSON.stringify(nuevaLista);
-            document.cookie = "miCookie="+nuevaLista+"; expires=" + fechaVencimiento + "; path=/";
-
-            nuevaLista=[];
-            for (let z=0;z<10;z++){
-                nuevaLista.push(listaPuntos[z].innerHTML)
-            }
-            nuevaLista = JSON.stringify(nuevaLista);
-            document.cookie = "miCookiePuntos="+nuevaLista+"; expires=" + fechaVencimiento + "; path=/";
-            
-            
-    
-    
+    nuevaLista=[];
+    for (let z=0;z<10;z++){
+        nuevaLista.push(listaPuntos[z].innerHTML)
+    }
+    nuevaLista = JSON.stringify(nuevaLista);
+    document.cookie = "miCookiePuntos="+nuevaLista+"; expires=" + fechaVencimiento + "; path=/";
     
     okBtn.classList.add('invisible');
     input.classList.add('invisible');

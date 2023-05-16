@@ -7,9 +7,6 @@ class Audio{
         this.src='cancion.ogg';
 
         this.tag.addEventListener("ended", ()=> this.volver());
-
-
-
         this.btn=document.querySelector('#audioBtn');
         this.btn.style="background:url('images/mutetrue.png')center/cover"
         this.btn.addEventListener("click",()=>{
@@ -24,11 +21,10 @@ class Audio{
 
                 this.tag.play();
             }
-
-
         });
         this.play();
     }
+
     play(loop){
         this.tag.play();
         this.tag.loop=loop;

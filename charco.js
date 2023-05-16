@@ -1,3 +1,5 @@
+// charco que se dibuja en el piso, hereda de elementos en el piso
+
 const CHARCO_MEDIO_ANCHO=50;
 const CHARCO_ALTO=40;
 class Charco extends ElementoPiso{
@@ -9,7 +11,6 @@ class Charco extends ElementoPiso{
         this.y=LIMITE_Y-this.radioY+20;
         this.soy="charco"
         audio.tocar("boladada.ogg")
-
     }
     mePiso(){
         return "charco";

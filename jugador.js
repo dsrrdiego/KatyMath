@@ -63,11 +63,12 @@ class Jugador{
     }
     avanzar(){
         if (this.puedoMover(this.x+VELOCIDAD_X)) this.x+=VELOCIDAD_X;
-        
     }
+
     retroceder(){
         if (this.puedoMover(this.x-VELOCIDAD_RETROCESO)) this.x-=VELOCIDAD_RETROCESO;
     }
+
     saltar(){
         if (this.saltando==0){
             audio.tocar('saltar.mp3')
@@ -80,6 +81,7 @@ class Jugador{
             this.saltando=0.1;
         }
     }
+
     estaSaltando(){
         if (this.saltando!=0){
             this.saltando+=0.1;
@@ -89,6 +91,7 @@ class Jugador{
             
         }
     }
+
     morir(){
         audio.cambiar('morir.ogg');
         this.div.classList.remove('caminar'+this.miNumero);
@@ -127,8 +130,6 @@ class Jugador{
             },3000)
         }
         this.vidas--;
-                    
-
     }
 
     disparar(){
@@ -140,9 +141,7 @@ class Jugador{
     
     actualizar(){
         this.estaSaltando();
-        if (this.saltando==0&& this.y<LIMITE_Y-15){ this.y+=5;
-
-        }
+        if (this.saltando==0&& this.y<LIMITE_Y-15) this.y+=5;
         for (let bola of bolasEnElAire){
             if (bola.teDi(this.x,this.y)) this.morir();
         }
@@ -183,29 +182,29 @@ class Jugador{
     }
 
     procesarEntrada(){
-    if (this.soyDerecha){
-    if (tecla.ArrowLeft) this.retroceder();
-    if (tecla.ArrowRight) this.avanzar();
-    if (tecla.ArrowUp){
-         this.saltar();
-         tecla.ArrowUp=false;
+        if (this.soyDerecha){
+        if (tecla.ArrowLeft) this.retroceder();
+        if (tecla.ArrowRight) this.avanzar();
+        if (tecla.ArrowUp){
+            this.saltar();
+            tecla.ArrowUp=false;
+        }
+        if (tecla.Space){
+            this.disparar();
+            tecla.Space=false;       
+        } 
+    }else{
+        if (tecla.KeyA) this.retroceder();
+        if (tecla.KeyD) this.avanzar();
+        if (tecla.KeyW){
+            this.saltar();
+            tecla.KeyW=false;
+        }
+        if (tecla.ControlLeft){
+            this.disparar();
+            tecla.ControlLeft=false;       
+        }
     }
-    if (tecla.Space){
-        this.disparar();
-        tecla.Space=false;       
-    } 
-}else{
-    if (tecla.KeyA) this.retroceder();
-    if (tecla.KeyD) this.avanzar();
-    if (tecla.KeyW){
-         this.saltar();
-         tecla.KeyW=false;
-    }
-    if (tecla.ControlLeft){
-        this.disparar();
-        tecla.ControlLeft=false;       
-    }
-}
 }
 
 }

@@ -1,3 +1,5 @@
+// todo lo relativo a las esferas que rebotan
+
 const GRAVEADADsube=0.95;
 const GRAVEADADbaja=1.05;
 let bolaNumero=-1;
@@ -6,9 +8,9 @@ class Bola{
         if (copia==null){
             bolaNumero++;
             this.numero=bolaNumero%6;
-            this.x=Math.floor(Math.random()*400);
+            this.x=Math.floor(Math.random()*LIMITE_X);
             this.radio=Math.floor(Math.random()*80)+20;
-            this.direccionX=Math.floor(Math.random()*7)-3;
+            this.direccionX=Math.floor(Math.random()*7)-2;
             this.gravedad=GRAVEADADbaja;
             this.enColisionCon=null;
             this.y=10;
@@ -38,9 +40,9 @@ class Bola{
     actualizar(){
         
         //limites de la pantalla en X
-        if (this.x+this.radio>970) {
+        if (this.x+this.radio>LIMITE_X) {
             this.direccionX*=-1;
-            this.x=970-this.radio;
+            this.x=LIMITE_X-this.radio;
         }
         if (this.x-this.radio<0){
             this.direccionX*=-1;
@@ -113,7 +115,6 @@ class Bola{
     }
 
     dibujar(){
-        
         this.div.style.cssText = `background: url('images/esferat${this.numero}.png') center/cover; position: fixed; top: ${this.y-this.radio}px; left:${this.x-this.radio}px; width:${this.radio*2}px; height:${this.radio*2}px`;
     }
 }

@@ -1,3 +1,5 @@
+// banderita donde termina cada nivel
+
 const LLEGADA_ANCHO=75;
 const LLEGADA_ALTO=75;
 class Llegada extends ElementoPiso{
@@ -30,24 +32,6 @@ class Llegada extends ElementoPiso{
 
             nivel++;
             escena(nivel);
-           
-
-            // final()
-// // Obtén los parámetros de consulta de la URL
-// const urlParams = new URLSearchParams(window.location.search);
-
-// // Establece el nuevo valor del argumento
-// urlParams.set('argumento', nivel++);
-
-// // Construye la nueva URL con el argumento actualizado
-// const nuevaURL = window.location.origin + window.location.pathname + '?' + urlParams.toString();
-
-// // Reemplaza la URL actual sin agregar una nueva entrada al historial
-// window.history.replaceState({}, document.title, nuevaURL);
-// window.location.reload();
-
-
-
         }, 3000);
     }
 }

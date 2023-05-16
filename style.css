@@ -4,26 +4,23 @@ body{
     font-family: "KattYMatt", sans-serif; 
     font-size: medium;
 }
-/* h2{
-} */
 
-
+/* botoncito de mutear el audio */
 #audioBtn{
     position:fixed;
     width:30px;
     height: 30px;
-    /* left:0px; */
     left:calc(50% - 15px);
     z-index:20;
-    /* background: url('images/mute.png') center/cover; */
 }
+
+/* datos que se muestran arriba (vidas, puntos, etc) */
 .hud{
     position: fixed;
     display:flex;
     z-index: 15;
     width:100%;
     font-size:small;
-    
 }
 #hud0{
     justify-content: right;
@@ -31,10 +28,6 @@ body{
 #hud1{
     justify-content: left;
 }
-@font-face {
-    font-family: "KattYMatt"; /* Asigna un nombre a tu fuente */
-    src: url("letras/letra.ttf"); /* Ruta relativa al archivo de fuente en tu carpeta de fonts */
-  }
 .hud h2{
     padding-left: 10px;
     padding-right: 10px;
@@ -55,7 +48,7 @@ body{
 #montañas{
     position: fixed;
     width:100%;
-    top:130px;
+    top:250px;
     height:250px;
     background: url('images/mont.png') center/cover;
     animation: desplazar 50s linear infinite;
@@ -64,8 +57,8 @@ body{
     position:fixed;
     width:100%;
     background-color: green;
-    top:380px;
-    height:110px;
+    top:500px;
+    height:150px;
 
 }
 
@@ -116,7 +109,6 @@ body{
 @keyframes saltar{
     0%{
         background-position-x: 0%;
-        
     }
     100%{
         background-position-x: 1000%;
@@ -163,16 +155,13 @@ body{
 @keyframes bandera {
     0%{background-position-x: 0px;}
     100%{background-position-x: -1545px;}
-    
 }
 
 .cofre{
     z-index:6;
     position: fixed;
     background: url('images/cofres2.png');
-    
 }
-
 
 @keyframes abrirCofre {
     0%{
@@ -191,16 +180,21 @@ body{
         width:50%;
         height: 50%;
         transform: translate(-50%, -50%);
-
         opacity:0;    }
 }
+
 @keyframes jugadorMuerto {
     0%{filter:none();}
     100%{filter:grayscale();}
-    
 }
+
 @keyframes jugadorVivo {
     0%{filter:grayscale();}
     100%{filter:none();}
-    
+}
+
+/* cargar letra del juego */
+@font-face {
+    font-family: "KattYMatt"; /* Asigna un nombre a tu fuente */
+    src: url("letras/letra.ttf"); /* Ruta relativa al archivo de fuente en tu carpeta de fonts */
 }
