@@ -1,0 +1,97 @@
+
+#bienvenida{
+    position:fixed;
+    width:500px;
+    height:355px;
+    background-color: rgba(0, 123, 255, 0.765);
+    top: calc(50% - 200px);
+    left:calc(50% - 250px);
+    z-index:30;
+}
+#jugadoresDiv{
+    position:relative;
+    display: flex;
+    height: 100px;
+
+}
+.botoneable{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+    margin:3%;
+}
+.botoneable:hover{
+    background-color: rgba(255, 0, 255, 0.262);
+}
+.cadaJugador{
+    width:50%;
+    height: 100%;
+
+}
+
+.nombre{
+    margin: 0px;
+    position: absolute;
+    bottom: 0px;
+}
+
+
+.jugador{
+    position:fixed;
+    top: 70px;
+    left:calc(50% - 140px);
+    width: 25px;
+    height: 35px;
+    z-index:15;
+}
+#jugador2{
+    position:fixed;
+    top: 70px;
+    left:calc(50% + 115px);
+    width: 25px;
+    height: 35px;
+    z-index:15;
+}
+
+/* //////////// 2 jugadore  ///////////////// */
+#MattYKattDiv{
+    position:relative;
+    top: 15px;
+    height: 100px;
+}
+
+#MattDosJugadores{
+    position:fixed;
+    top: 200px;
+    left:calc(50% - 40px);
+}
+#KattDosJugadores{
+    position:fixed;
+    top: 200px;
+    left:calc(50% + 20px);
+}
+.exibicion{
+    height: 35px;
+    width: 25px;
+    
+}
+
+/* //////////// 2 jugadore inversos  ///////////////// */
+
+#KattYMattDiv{
+    position:relative;
+    top: 10px;
+    height: 100px;
+}
+
+#MattDosJugadoresDos{
+    position:fixed;
+    top: 315px;
+    left:calc(50% + 20px);
+}
+#KattDosJugadoresDos{
+    position:fixed;
+    top: 315px;
+    left:calc(50% - 40px);
+}

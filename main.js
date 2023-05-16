@@ -13,7 +13,6 @@ let in_game = true;
 let audio;
 
 
-
 document.addEventListener("keydown", (event) => {tecla[event.code]=true;
 
     if (event.key=="x") new Bola();
@@ -39,7 +38,7 @@ document.addEventListener("keyup", (event) => {tecla[event.code]=false;});
 
 
 const jugador1=new Jugador();
-const jugador2=new Jugador();
+// const jugador2=new Jugador();
 
 //crear bolas
 setInterval(()=>{

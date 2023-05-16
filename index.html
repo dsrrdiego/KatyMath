@@ -6,14 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KattYMatt</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bienvenida.css">
 </head>
+<div id="jugador1"></div>
+<div id="jugador2" class="caminar1"></div>
 <body>
-    <button id="play">Play</button>
     <div id="bienvenida">
-        <div id="UnJugadorDiv">
-            <h2>Katt</h2>
-            <h2>Matt</h2>
+        <!-- <button id="play">Play</button> -->
+        <div id="jugadoresDiv">
+            <div id="Katt" class="botoneable cadaJugador">
+                <h2 class="nombre">Katt</h2>
+            </div>
+            <div id="Matt" class="botoneable cadaJugador">
+                <h2 class="nombre">Matt</h2>
+            </div>
         </div>
+
+        <div id="MattYKattDiv" class="botoneable">
+            <div id="MattDosJugadores" class="caminar1 exibicion"></div>
+            <div id="KattDosJugadores" class="caminar0 exibicion"></div>
+            <h2 class="nombre">Matt Y Katt</h2>
+        </div>
+
+        <div id="KattYMattDiv" class="botoneable">
+            <div id="MattDosJugadoresDos" class="caminar1 exibicion"></div>
+            <div id="KattDosJugadoresDos" class="caminar0 exibicion"></div>
+            <h2 class="nombre">Matt Y Katt</h2>
+        </div>
+
+
+
     </div>
     <button id="audioBtn"></button>
     <div id="todo">
@@ -38,7 +60,6 @@
         <div id="cielo"></div>
         <div id="montañas"></div>
         <div id="tierra"></div>
-        <div id="jugador1"></div>
         <div id="infoDiv" class="invisible">
             <h1>Perdiste</h1>
         </div>
