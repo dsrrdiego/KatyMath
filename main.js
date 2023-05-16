@@ -39,7 +39,7 @@ document.addEventListener("keydown", (event) => {tecla[event.code]=true;
 document.addEventListener("keyup", (event) => {tecla[event.code]=false;});
 
 
-const jugador1=new Jugador();
+// const jugador1=new Jugador();
 // const jugador2=new Jugador();
 
 //crear bolas
