@@ -35,9 +35,9 @@ class Jugador{
         this.div.classList.add('caminar'+this.miNumero);
         this.x=250-numeroDeJugador*100;
         this.y=100;
-        this.vidas=3;
+        this.vidas=2;
         this.puntos=0;
-        this.flechas=20;
+        this.flechas=4;
         this.saltando=false;
         jugadoresEnJuego.push(this);
         document.body.appendChild(this.div);
@@ -94,7 +94,6 @@ class Jugador{
         this.div.classList.add('morir'+this.miNumero);
         const indice=jugadoresEnJuego.indexOf(this);
         jugadoresEnJuego.splice(indice,1);
-        // document.body.style="filter: grayscale();"
         document.querySelector('#todo').style="animation: jugadorMuerto 3s linear; ";
         setTimeout(() => {
             this.x=-100;
@@ -105,11 +104,14 @@ class Jugador{
         if (this.vidas<=1){
             setTimeout(() => {
                 if (jugadoresEnJuego.length==0) {in_game=false;
-                    document.querySelector('#todo').style="animation: jugadorMuerto 1s linear forwards; ";
+                    document.querySelector('#todo').style="animation: jugadorMuerto 4s linear forwards; ";
                     audio.cambiar('pausa2.ogg',true);
                     infoDiv.innerHTML="Perdiste";
                     infoDiv.classList.remove('invisible');
                     this.div.style="display:none;";
+                    setTimeout(() => {
+                       final(this.puntos);
+                    }, 7000);
                 }
             }, 1000);
         }else{
@@ -160,6 +162,7 @@ class Jugador{
                     new Bola();
                     new Bola();
                     break;
+                    
 
             }
         }

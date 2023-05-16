@@ -15,28 +15,6 @@ let in_game = true;
 let audio;
 
 
-document.addEventListener("keydown", (event) => {tecla[event.code]=true;
-
-    if (event.key=="x") new Bola();
-    if (event.key=="q") audio=new Audio();
-    if (event.key=="p") {
-        
-        if (in_game) {
-            in_game=false; 
-            infoDiv.innerHTML="Pausado";
-            infoDiv.classList.remove('invisible');
-            audio.cambiar('pausa2.ogg',true);
-            
-        }else {
-            infoDiv.classList.add('invisible');
-            in_game=true;
-            audio.cambiar('musique.mp3',true);
-
-            gameLoop();
-        }
-    }
-});
-document.addEventListener("keyup", (event) => {tecla[event.code]=false;});
 
 
 //crear bolas

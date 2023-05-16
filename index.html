@@ -7,6 +7,7 @@
     <title>KattYMatt</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="bienvenida.css">
+    <link rel="stylesheet" href="final.css">
 </head>
 <div id="jugador1"></div>
 <body>
@@ -63,8 +64,18 @@
         <div id="infoDiv" class="invisible">
             <h1>Perdiste</h1>
         </div>
-    </body>
+    <div id="final" class="invisible">
+            <ol id="lista">
+                <li>a</li>
+                <li>a</li>
+                <li>a</li>
+            </ol>
+            <input type="text" name="" id="input" placeholder="Tu Nombre">
+            <button id="finalBtn">ok</button>
+            <button id="otraVezBtn">De Nuevo!!</button>
+        </div>
     </div>
+</body>
     <audio id="audio" src="sonidos/musique.mp3"></audio>
 <!-- <audio id="audio2"></audio> -->
 <script src="ElementoPiso.js"></script>
@@ -77,5 +88,6 @@
 <script src="jugador.js"></script>
 <script src="audio.js"></script>
 <script src="bienvenida.js"></script>
+<script src="final.js"></script>
 <script src="main.js"></script>
 </html>

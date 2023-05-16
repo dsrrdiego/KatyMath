@@ -15,6 +15,9 @@ class Llegada extends ElementoPiso{
     super.actualizar();
     
  }
+ pise(x,y){
+    if (x>this.x) return this.mePiso();
+ }
  mePiso(){
     if (!this.pisado){
         this.pisado=true;
@@ -22,6 +25,9 @@ class Llegada extends ElementoPiso{
         infoDiv.classList.remove('invisible')
         in_game=false;
         audio.cambiar("victoria.mp3");
+        setTimeout(() => {
+            final(0)
+        }, 3000);
     }
 }
 }
