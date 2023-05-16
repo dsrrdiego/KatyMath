@@ -1,5 +1,13 @@
 "use strict"
-let nivel=1;
+
+//CONFIGURACION DEL JUEGO
+let nivel=1; //nivel inicial de dificultad
+const BANDERA_CADA=3000; // cada cuantos pixeles aparecera la bandera de pasar de nivel
+const COFRE_EN=1000; //pixeles en que aparecerà el cofre
+const COFRE_A_PARTIR_DE= 1000; 
+const FLECHAS_POR_COFRE=3;
+const VIDAS_INICIAL=1;
+
 
 const LIMITE_Y=400; //horizonte
 const LIMITE_X=955;

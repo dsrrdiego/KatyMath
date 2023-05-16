@@ -3,7 +3,6 @@ let listaPuntos=document.querySelectorAll('#listaPuntos li');
 
 
 function final(puntos){
-    
     document.querySelector('#final').classList.remove('invisible');
     
     const input=document.querySelector('#input')
@@ -14,7 +13,6 @@ function final(puntos){
     
     
     const cookies = document.cookie.split(";"); // Divide las cookies en un array
-    console.log('leyendo cook');
     
     for (let i = 0; i < cookies.length; i++) {
         const cookie = cookies[i].trim(); // Elimina espacios en blanco al inicio y final de la cookie
@@ -25,7 +23,6 @@ function final(puntos){
             for (let n=0;n<10;n++){
                 listaNombres[n].innerHTML=nombreJugador[n];
             }
-            console.log("nom"+nombreJugador);
             
         }
         
@@ -58,7 +55,7 @@ function final(puntos){
             
             input.addEventListener('input',function (){
                 listaNombres[n].innerHTML=this.value;
-                console.log('cambiaso');});
+            });
             
 
             const okBtn=document.querySelector('#finalBtn')

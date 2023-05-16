@@ -35,8 +35,9 @@ class Jugador{
         this.div.classList.add('caminar'+this.miNumero);
         this.x=250-numeroDeJugador*100;
         this.y=100;
-        this.vidas=2;
+        this.vidas=VIDAS_INICIAL;
         this.puntos=0;
+        this.puntosParciales=0;
         this.flechas=4;
         this.saltando=false;
         jugadoresEnJuego.push(this);
@@ -110,7 +111,7 @@ class Jugador{
                     infoDiv.classList.remove('invisible');
                     this.div.style="display:none;";
                     setTimeout(() => {
-                       final(this.puntos);
+                       final(this.puntosParciales);
                     }, 7000);
                 }
             }, 1000);
@@ -153,16 +154,17 @@ class Jugador{
                     this.morir();
                     break;
                 case "arcoYflecha":
-                    this.flechas+=5;
+                    this.flechas+=FLECHAS_POR_COFRE;
                     break;
                 case "vida":
-                    this.vida++;
+                    
+                    this.vidas++;
                     break;
                 case "esferat0":
                     new Bola();
-                    new Bola();
                     break;
-                    
+                case "estrella":
+                    this.puntos+=1000;                    
 
             }
         }
@@ -170,7 +172,8 @@ class Jugador{
 
 
         this.vidasDiv  .innerHTML=this.vidas;
-        this.puntosDiv .innerHTML=this.puntos;
+        if (this.puntosParciales<this.puntos) this.puntosParciales+=1
+        this.puntosDiv .innerHTML=this.puntosParciales;
         this.flechasDiv.innerHTML=this.flechas;
 
         }

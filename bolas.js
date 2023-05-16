@@ -5,7 +5,7 @@ class Bola{
     constructor(copia, direccion){
         if (copia==null){
             bolaNumero++;
-            this.numero=bolaNumero%4;
+            this.numero=bolaNumero%6;
             this.x=Math.floor(Math.random()*400);
             this.radio=Math.floor(Math.random()*80)+20;
             this.direccionX=Math.floor(Math.random()*7)-3;

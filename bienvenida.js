@@ -1,9 +1,5 @@
 function bienvenida(){
 
-    // const urlParams = new URLSearchParams(window.location.search);
-    // const arg = urlParams.get('argumento');
-    // console.log("ar:"+arg);
-    // if (arg==null){
 
 
         
@@ -12,29 +8,9 @@ function bienvenida(){
         document.querySelector('#MattYKattDiv').addEventListener('click',()=>inicializar2(0,1));
         document.querySelector('#KattYMattDiv').addEventListener('click',()=>inicializar2(1,0));
         document.querySelector('#verControles').addEventListener('click',verControles);
-    // }else{
-    //     document.querySelector('#bienvenida').classList.add('invisible')        ;
-    //     console.log('enpp');
-        
-    //     dificultad=arg;
-    //     inicializar1(0);
-    //     // in_game=true;
-    //     // gameLoop()
-    // }
 
 }
 function inicializar(){
-
-    // Obtén los parámetros de consulta de la URL
-
-    // Verifica si el argumento está presente en los parámetros de consulta
-    // if (urlParams.has('argumento')) {
-  // Obtiene el valor del argumento
-    
-
-// }
-
-
 
     document.querySelector('#bienvenida').classList.add('invisible')        ;
     audio=new Audio();
@@ -42,44 +18,14 @@ function inicializar(){
     document.querySelector('#hud0').classList.remove('invisible');
 
 
-    document.addEventListener("keydown", (event) => {tecla[event.code]=true;
-
-        if (event.key=="x") new Bola();
-        if (event.key=="c") new Cofre(500);
-        if (event.key=="q") audio=new Audio();
-        if (event.key=="p") {
-            
-            if (in_game) {
-                in_game=false; 
-                document.querySelector('#todo').style="animation: jugadorMuerto 3s linear forwards; ";
-                infoDiv.innerHTML="Pausa";
-                infoDiv.classList.remove('invisible');
-                audio.cambiar('pausa2.ogg',true);
-                
-            }else {
-                document.querySelector('#todo').style="animation: jugadorVivo 1s linear; ";
-                
-    
-    
-                infoDiv.classList.add('invisible');
-                in_game=true;
-                audio.cambiar('musique.mp3',true);
-    
-                gameLoop();
-            }
-        }
-    });
+    document.addEventListener("keydown", (event) => {teclado(event)});
+        
     document.addEventListener("keyup", (event) => {tecla[event.code]=false;});
     
-
-
     
-    
-    new Cofre(500);
     new Estrella();
     
     escena(nivel);
-    // gameLoop();
 }
 function inicializar1(personaje){
     new Jugador(personaje);
@@ -94,17 +40,17 @@ function inicializar2(personaje1, personaje2){
 }
 let reloj;
 function escena(dificultad){
-clearTimeout(reloj)
-reloj=setInterval(()=>{
-    if (in_game){
-        const azar=Math.floor(Math.random()*6);    
-        (azar>2)? new Bola():new Cofre((Math.random()*3000)+500);
-    }   
-},Math.floor((Math.random()*5000-dificultad*200)+3000-dificultad*200));
+    clearTimeout(reloj)
+    reloj=setInterval(()=>{
+        if (in_game){
+            const azar=Math.floor(Math.random()*7);    
+            (azar>2)? new Bola():new Cofre((Math.random()*COFRE_EN)+COFRE_A_PARTIR_DE);
+        }   
+    },Math.floor((Math.random()*5000-dificultad*200)+3000-dificultad*200));
 
-in_game=true;
-new Llegada(3000);
-gameLoop();
+    in_game=true;
+    new Llegada(BANDERA_CADA);
+    gameLoop();
 }
 
 
@@ -122,3 +68,36 @@ function verControles(){
 
     }, 5000);
 }
+
+
+
+function teclado(event){
+tecla[event.code]=true;
+
+        if (event.key=="x") new Bola();
+        if (event.key=="c") new Cofre(500);
+        if (event.key=="q") audio=new Audio();
+        if (event.key=="p") {
+            
+            if (in_game) {
+                in_game=false; 
+                document.querySelector('#todo').style="animation: jugadorMuerto 3s linear forwards; ";
+                infoDiv.innerHTML="Pausa";
+                infoDiv.classList.remove('invisible');
+                audio.cambiar('pausa2.ogg',true);
+                
+            }else {
+                if (jugadoresEnJuego[0].vidas>0){
+                document.querySelector('#todo').style="animation: jugadorVivo 1s linear; ";
+                
+    
+    
+                infoDiv.classList.add('invisible');
+                in_game=true;
+                audio.cambiar('musique.mp3',true);
+    
+                gameLoop();
+                }
+            }
+        }
+    };

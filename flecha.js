@@ -21,7 +21,7 @@ class Flecha{
                     flechasEnElAire.splice(indice,1);
                     document.body.removeChild(this.div);
                 }
-                this.dueño.puntos++;
+                this.dueño.puntos+=100;
             }
         }
 
