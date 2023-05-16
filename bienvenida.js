@@ -1,14 +1,22 @@
 function bienvenida(){
+        audio=new Audio();
         document.querySelector('#Katt').addEventListener('click',()=>{inicializar1(0)});
         document.querySelector('#Matt').addEventListener('click',()=>inicializar1(1));
         document.querySelector('#MattYKattDiv').addEventListener('click',()=>inicializar2(0,1));
         document.querySelector('#KattYMattDiv').addEventListener('click',()=>inicializar2(1,0));
         document.querySelector('#verControles').addEventListener('click',verControles);
-}
+
+        let todos=document.querySelectorAll('.botoneable');
+    
+    todos.forEach((btn)=>btn.addEventListener('mouseover',()=>{
+        audio.tocar('revote.ogg');}));
+        
+    }
 
 function inicializar(){
     document.querySelector('#bienvenida').classList.add('invisible')        ;
-    audio=new Audio();
+    audio.tocar('moneda.ogg')
+    audio.cambiar('musique.mp3',true);
     document.querySelector('#audioBtn').classList.remove('invisible');
     document.querySelector('#hud0').classList.remove('invisible');
     document.addEventListener("keydown", (event) => {teclado(event)});
