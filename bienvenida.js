@@ -11,5 +11,12 @@ function bienvenida(){
         gameLoop();
 
     });
+    document.querySelector('#Matt').addEventListener('click',()=>inicializar(1));
+    document.querySelector('#MattYKattDiv').addEventListener('click',()=>inicializar(2));
+    document.querySelector('#KattYMattDiv').addEventListener('click',()=>inicializar(3));
+    
+}
+function inicializar(n){
+    console.log(n);
     
 }
