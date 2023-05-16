@@ -1,23 +1,14 @@
-
-
 let listaNombres=document.querySelectorAll('#listaNombres li');
 let listaPuntos=document.querySelectorAll('#listaPuntos li');
 
 
 function final(puntos){
     
-    
-    
-    
-    
-    
-    const okBtn=document.querySelector('#finalBtn')
     document.querySelector('#final').classList.remove('invisible');
     
     
     
     const input=document.querySelector('#input')
-    okBtn.addEventListener('click',()=>agregar(puntos,okBtn));
     document.querySelector('#otraVezBtn').addEventListener('click',()=>location.reload());
     //descomentar
     // document.querySelector('#infoDiv').classList.add('invisible');
@@ -28,14 +19,14 @@ function final(puntos){
     for (let i = 0; i < cookies.length; i++) {
         const cookie = cookies[i].trim(); // Elimina espacios en blanco al inicio y final de la cookie
         const [nombre, valor] = cookie.split("="); // Divide el nombre y el valor de la cookie
-    
+        
         if (nombre === "miCookie") {
             const nombre=JSON.parse(valor)
             for (let n=0;n<10;n++){
                 listaNombres[n].innerHTML=nombre[n];
             }
         }
-
+        
         if (nombre === "miCookiePuntos") {
             const ppuntos=JSON.parse(valor)
             for (let n=0;n<10;n++){
@@ -44,13 +35,8 @@ function final(puntos){
             break;
         }
     }
-    
-    
-    
-}
 
-function agregar(puntos,okBtn){
-    const nombre=input.value;
+    ///
     let listaNombresDiv=document.querySelector('#listaNombres');
     let listaPuntosDiv=document.querySelector('#listaPuntos');
     
@@ -62,8 +48,21 @@ function agregar(puntos,okBtn){
                 listaNombres[x].innerHTML=listaNombres[x-1].innerHTML;
                 listaPuntos[x].innerHTML =listaPuntos[x-1].innerHTML ;
             }
-            listaNombres[n].innerHTML=input.value;
+            listaNombres[n].innerHTML="__________";
             listaPuntos[n].innerHTML=puntos;
+            
+            const okBtn=document.querySelector('#finalBtn')
+            okBtn.addEventListener('click',()=>agregar(puntos,okBtn,listaNombres[n]));
+            
+            break;
+        }
+    }
+    
+}
+
+function agregar(puntos,okBtn,item){
+    const nombre=input.value;
+    item.innerHTML=nombre;
             
             const fechaVencimiento = new Date('2024-12-31').toUTCString();
 
@@ -84,9 +83,6 @@ function agregar(puntos,okBtn){
             document.cookie = "miCookiePuntos="+nuevaLista+"; expires=" + fechaVencimiento + "; path=/";
             
             
-            break;
-        }
-    }
     
     
     
@@ -95,5 +91,5 @@ function agregar(puntos,okBtn){
     
 }
 //borrar
-final(35);
+final(90);
 
