@@ -1,10 +1,17 @@
+/* reemplazar por clase */
 #final{
-    
     position:fixed;
     width:500px;
     height:355px;
     background-color: rgb(0, 123, 255);
     top: calc(50% - 200px);
     left:calc(50% - 250px);
+    border-radius: 5%;
     z-index:30;
+}
+#listas{
+    display:flex;
+}
+ul{
+    list-style-type: none;
 }
