@@ -1,8 +1,6 @@
 const F_RADIO=30;
 class FiguraIndicadora{
     constructor(tipo, x,y){
-        console.log(tipo);
-        
         this.figura=tipo;
         this.x=x-F_RADIO;
         this.y=y-F_RADIO;

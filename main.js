@@ -39,18 +39,7 @@ document.addEventListener("keydown", (event) => {tecla[event.code]=true;
 document.addEventListener("keyup", (event) => {tecla[event.code]=false;});
 
 
-// const jugador1=new Jugador();
-// const jugador2=new Jugador();
-
 //crear bolas
-setInterval(()=>{
-    const azar=Math.floor(Math.random()*6);    
-    (azar>2)? new Bola():new Cofre((Math.random()*3000)+500);
-},Math.floor((Math.random()*5000)+3000));
-new Llegada(5000);
-
-new Cofre(500);
-new Estrella();
 
 
 function procesar_entrada_usuario() {

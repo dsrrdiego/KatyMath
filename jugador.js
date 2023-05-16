@@ -16,20 +16,22 @@ flechasDiv[1]=document.querySelector('#flechasDiv1');
 
 let numeroDeJugador=0;
 class Jugador{
-    constructor(){
+    constructor(n){
         
-        this.miNumero=numeroDeJugador;
+        this.miNumero=n;
         numeroDeJugador++;
+        this.soyDerecha=true;
         if (numeroDeJugador==2){
             this.elOtro=jugadoresEnJuego[0];
             jugadoresEnJuego[0].elOtro=this;
             document.querySelector('#hud1').classList.remove('invisible');
+            this.soyDerecha=false;
         }
         this.div=document.createElement('div');
         this.div.classList.add('jugador');
         this.div.classList.add('caminar'+this.miNumero);
-        this.x=250-this.miNumero*100;
-        this.y=380;
+        this.x=250-numeroDeJugador*100;
+        this.y=100;
         this.vidas=3;
         this.puntos=0;
         this.flechas=20;
@@ -168,11 +170,11 @@ class Jugador{
         }
 
     dibujar (){
-            // this.div.style="left:"+(this.x-MEDIOANCHO)+"px;";
             this.div.style.cssText="left:"+(this.x-MEDIOANCHO)+"px; top:"+(this.y-ALTO/2)+"px;";
     }
+
     procesarEntrada(){
-    if (this.miNumero==0){
+    if (this.soyDerecha){
     if (tecla.ArrowLeft) this.retroceder();
     if (tecla.ArrowRight) this.avanzar();
     if (tecla.ArrowUp){

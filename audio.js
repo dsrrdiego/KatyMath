@@ -6,8 +6,7 @@ class Audio{
         this.audioToggle=true;
         this.src='cancion.ogg';
 
-        this.tag.addEventListener("ended", ()=> {console.log('v1');
-         this.volver()});
+        this.tag.addEventListener("ended", ()=> this.volver());
 
 
 
@@ -49,7 +48,6 @@ class Audio{
     }
     volver(){
         this.cambiar(this.src);
-        console.log('volcio');
         
     }
 
