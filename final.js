@@ -6,8 +6,6 @@ function final(puntos){
     
     document.querySelector('#final').classList.remove('invisible');
     
-    
-    
     const input=document.querySelector('#input')
     document.querySelector('#otraVezBtn').addEventListener('click',()=>location.reload());
     //descomentar
@@ -16,18 +14,22 @@ function final(puntos){
     
     
     const cookies = document.cookie.split(";"); // Divide las cookies en un array
+    console.log('leyendo cook');
+    
     for (let i = 0; i < cookies.length; i++) {
         const cookie = cookies[i].trim(); // Elimina espacios en blanco al inicio y final de la cookie
-        const [nombre, valor] = cookie.split("="); // Divide el nombre y el valor de la cookie
+        const [nombreCook, valor] = cookie.split("="); // Divide el nombre y el valor de la cookie
         
-        if (nombre === "miCookie") {
-            const nombre=JSON.parse(valor)
+        if (nombreCook === "miCookie") {
+            const nombreJugador=JSON.parse(valor)
             for (let n=0;n<10;n++){
-                listaNombres[n].innerHTML=nombre[n];
+                listaNombres[n].innerHTML=nombreJugador[n];
             }
+            console.log("nom"+nombreJugador);
+            
         }
         
-        if (nombre === "miCookiePuntos") {
+        if (nombreCook === "miCookiePuntos") {
             const ppuntos=JSON.parse(valor)
             for (let n=0;n<10;n++){
                 listaPuntos[n].innerHTML=ppuntos[n];
@@ -49,6 +51,8 @@ function final(puntos){
                 listaPuntos[x].innerHTML =listaPuntos[x-1].innerHTML ;
             }
             listaNombres[n].innerHTML="__________";
+            listaNombres[n].style="font-size: xx-large;";
+
             listaPuntos[n].innerHTML=puntos;
             
             input.addEventListener('input',function (){
@@ -68,6 +72,7 @@ function final(puntos){
 function agregar(puntos,okBtn,item){
     // const nombre=input.value;
     item.innerHTML=input.value;
+    item.style="font-size: medium";
             
             const fechaVencimiento = new Date('2024-12-31').toUTCString();
 
@@ -91,10 +96,10 @@ function agregar(puntos,okBtn,item){
     
     
     
-    //cambiar
-    // okBtn.classList.add('invisible');
+    okBtn.classList.add('invisible');
+    input.classList.add('invisible');
     
 }
 //borrar
-final(90);
+final(190);
 
