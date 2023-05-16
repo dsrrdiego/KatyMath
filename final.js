@@ -9,8 +9,8 @@ function final(puntos){
     const input=document.querySelector('#input')
     document.querySelector('#otraVezBtn').addEventListener('click',()=>location.reload());
     //descomentar
-    // document.querySelector('#infoDiv').classList.add('invisible');
-    // document.querySelector('#todo').style="animation: jugadorVivo 1s linear; ";
+    document.querySelector('#infoDiv').classList.add('invisible');
+    document.querySelector('#todo').style="animation: jugadorVivo 1s linear; ";
     
     
     const cookies = document.cookie.split(";"); // Divide las cookies en un array
@@ -54,6 +54,7 @@ function final(puntos){
             listaNombres[n].style="font-size: xx-large;";
 
             listaPuntos[n].innerHTML=puntos;
+            listaPuntos[n].style="font-size: xx-large;";
             
             input.addEventListener('input',function (){
                 listaNombres[n].innerHTML=this.value;
@@ -61,7 +62,7 @@ function final(puntos){
             
 
             const okBtn=document.querySelector('#finalBtn')
-            okBtn.addEventListener('click',()=>agregar(puntos,okBtn,listaNombres[n]));
+            okBtn.addEventListener('click',()=>agregar(puntos,okBtn,listaNombres[n],listaPuntos[n]));
             
             break;
         }
@@ -69,10 +70,11 @@ function final(puntos){
     
 }
 
-function agregar(puntos,okBtn,item){
+function agregar(puntos,okBtn,item,itemPuntos){
     // const nombre=input.value;
     item.innerHTML=input.value;
     item.style="font-size: medium";
+    itemPuntos.style="font-size: medium";
             
             const fechaVencimiento = new Date('2024-12-31').toUTCString();
 
@@ -100,6 +102,4 @@ function agregar(puntos,okBtn,item){
     input.classList.add('invisible');
     
 }
-//borrar
-final(190);
 
