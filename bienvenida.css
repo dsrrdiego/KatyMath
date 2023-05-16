@@ -22,7 +22,7 @@
     margin:3%;
 }
 .botoneable:hover{
-    background-color: rgba(255, 0, 255, 0.262);
+    background-color: rgba(255, 0, 255, 0.565);
 }
 .cadaJugador{
     width:50%;
@@ -43,7 +43,6 @@
     left:calc(50% - 140px);
     width: 25px;
     height: 35px;
-    z-index:15;
 }
 #jugador2{
     position:fixed;
@@ -51,7 +50,6 @@
     left:calc(50% + 115px);
     width: 25px;
     height: 35px;
-    z-index:15;
 }
 
 /* //////////// 2 jugadore  ///////////////// */

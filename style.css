@@ -3,8 +3,7 @@ body{
     height:480px;
 }
 h2{
-    font-family: "KattYMatt", sans-serif; /* Utiliza la fuente personalizada en tu h2 */
-
+    font-family: "KattYMatt", sans-serif; 
 }
 
 
@@ -35,7 +34,7 @@ h2{
     font-family: "KattYMatt"; /* Asigna un nombre a tu fuente */
     src: url("letras/letra.ttf"); /* Ruta relativa al archivo de fuente en tu carpeta de fonts */
   }
-h2>.hud{
+.hud h2{
     padding-left: 10px;
     padding-right: 10px;
     margin:0px;
