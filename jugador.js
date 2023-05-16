@@ -5,13 +5,7 @@ const ALTO =35;
 
 const vidasDiv=[];const puntosDiv=[]; const flechasDiv=[];
 
-vidasDiv[0]=document.querySelector('#vidasDiv0');
-puntosDiv[0]=document.querySelector('#puntosDiv0');
-flechasDiv[0]=document.querySelector('#flechasDiv0');
 
-vidasDiv[1]=document.querySelector('#vidasDiv1');
-puntosDiv[1]=document.querySelector('#puntosDiv1');
-flechasDiv[1]=document.querySelector('#flechasDiv1');
 
 
 let numeroDeJugador=0;
@@ -20,12 +14,21 @@ class Jugador{
         
         this.miNumero=n;
         numeroDeJugador++;
-        this.soyDerecha=true;
         if (numeroDeJugador==2){
             this.elOtro=jugadoresEnJuego[0];
             jugadoresEnJuego[0].elOtro=this;
             document.querySelector('#hud1').classList.remove('invisible');
             this.soyDerecha=false;
+            this.vidasDiv=document.querySelector('#vidasDiv1');
+            this.puntosDiv=document.querySelector('#puntosDiv1');
+            this.flechasDiv=document.querySelector('#flechasDiv1');
+        }else{
+            this.soyDerecha=true;
+            this.vidasDiv=document.querySelector('#vidasDiv0');
+            this.puntosDiv=document.querySelector('#puntosDiv0');
+            this.flechasDiv=document.querySelector('#flechasDiv0');
+            
+            
         }
         this.div=document.createElement('div');
         this.div.classList.add('jugador');
@@ -163,9 +166,9 @@ class Jugador{
 
 
 
-        vidasDiv  [this.miNumero].innerHTML=this.vidas;
-        puntosDiv [this.miNumero].innerHTML=this.puntos;
-        flechasDiv[this.miNumero].innerHTML=this.flechas;
+        this.vidasDiv  .innerHTML=this.vidas;
+        this.puntosDiv .innerHTML=this.puntos;
+        this.flechasDiv.innerHTML=this.flechas;
 
         }
 
