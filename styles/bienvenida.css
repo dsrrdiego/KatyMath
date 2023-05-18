@@ -5,7 +5,7 @@
     left:20%;
     width: 200px;
     height: 200px;
-    background: url(images/esferat5.png) center/cover;
+    background: url(../images/esferat5.png) center/cover;
     animation: girar 10s ease-in-out infinite;
     z-index:4;
     
@@ -17,7 +17,7 @@
     transform: translate(-50%, -50%);
     width: 60%;
     height: 60%;
-    background: url(images/presentacion.png) center/contain no-repeat;
+    background: url(../images/presentacion.png) center/contain no-repeat;
     z-index: 5;
 } 
   
@@ -140,7 +140,7 @@
     width:400px;
     left: calc(50% - 200px);
     top: calc(50% - 100px);
-    background:url('images/teclas.jpeg') center/cover;
+    background:url('../images/teclas.jpeg') center/cover;
     z-index: 40;
     opacity: 1;
     border: 2px solid red;
