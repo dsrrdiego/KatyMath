@@ -32,7 +32,7 @@ class Audio{
     
     cambiar(fuente,loop){
         this.tag.src='sonidos/'+fuente;
-        this.tag.load();
+        // this.tag.load();
         if (this.audioToggle) this.play(loop);
 
     }

@@ -6,7 +6,9 @@ function final(puntos){
     document.querySelector('#final').classList.remove('invisible');
     
     const input=document.querySelector('#input')
-    document.querySelector('#otraVezBtn').addEventListener('click',()=>location.reload());
+    document.querySelector('#otraVezBtn').addEventListener('click',()=>{
+        localStorage.setItem("recarga", "true");
+        location.reload();});
     document.querySelector('#infoDiv').classList.add('invisible');
     document.querySelector('#todo').style="animation: jugadorVivo 1s linear; ";
     

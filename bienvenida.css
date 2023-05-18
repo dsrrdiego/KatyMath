@@ -1,3 +1,43 @@
+
+#bolaPresentacion {
+    position: fixed;
+    top: 25%;
+    left:20%;
+    width: 200px;
+    height: 200px;
+    background: url(images/esferat5.png) center/cover;
+    animation: girar 10s ease-in-out infinite;
+    z-index:4;
+    
+}
+#presentacion {
+   position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    background: url(images/presentacion.png) center/contain no-repeat;
+    z-index: 5;
+} 
+  
+  
+@keyframes girar {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg) ;
+    }
+  }
+  
+@keyframes girar {
+    100%{
+    transform: rotate(360deg);
+    }
+    
+}
+
 #bienvenida{
     position:fixed;
     width:500px;
@@ -8,6 +48,7 @@
     z-index:30;
     border-radius:2%;
 }
+
 #jugadoresDiv{
     position:relative;
     display: flex;

@@ -1,5 +1,25 @@
+function presentacion(){
+    const div=document.querySelector('#presentacion');
+
+    //si la pagina se llama recursivamente no se muestra la pantalla de presentacion
+    let parametro = localStorage.getItem("recarga");
+    if (parametro=="true"){
+        localStorage.setItem("recarga", "false");
+        pasarABienvenida();
+    }    
+    div.addEventListener('click',pasarABienvenida);
+
+    function pasarABienvenida(){
+        div.style="display:none;";
+        document.querySelector('#bolaPresentacion').style="display:none;";
+        bienvenida();
+    }
+}
+
+
 function bienvenida(){
         audio=new Audio();
+        document.querySelector('#bienvenida').classList.remove('invisible');
         document.querySelector('#Katt').addEventListener('click',()=>{inicializar1(0)});
         document.querySelector('#Matt').addEventListener('click',()=>inicializar1(1));
         document.querySelector('#MattYKattDiv').addEventListener('click',()=>inicializar2(0,1));
@@ -8,7 +28,7 @@ function bienvenida(){
 
         let todos=document.querySelectorAll('.botoneable');
     
-    todos.forEach((btn)=>btn.addEventListener('mouseover',()=>{
+        todos.forEach((btn)=>btn.addEventListener('mouseover',()=>{
         audio.tocar('revote.ogg');}));
         
     }
@@ -17,6 +37,7 @@ function inicializar(){
     document.querySelector('#bienvenida').classList.add('invisible')        ;
     audio.tocar('moneda.ogg')
     audio.cambiar('musique.mp3',true);
+    
     document.querySelector('#audioBtn').classList.remove('invisible');
     document.querySelector('#hud0').classList.remove('invisible');
     document.addEventListener("keydown", (event) => {teclado(event)});
@@ -43,9 +64,9 @@ function escena(dificultad){
     reloj=setInterval(()=>{
         if (in_game){
             const azar=Math.floor(Math.random()*12);    
-            (azar>2)? new Bola():new Cofre((Math.random()*COFRE_EN)+COFRE_A_PARTIR_DE);
+            (azar>6)? new Bola():new Cofre((Math.random()*COFRE_EN)+COFRE_A_PARTIR_DE);
         }   
-    },Math.floor((Math.random()*5000-dificultad*200)+3000-dificultad*200));
+    },Math.floor((Math.random()*APARICION-dificultad*200)+3000-dificultad*200));
     in_game=true;
     new Llegada(BANDERA_CADA);
     gameLoop();
