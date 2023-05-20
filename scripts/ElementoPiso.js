@@ -20,7 +20,7 @@ class ElementoPiso{
     }
     actualizar(){
         
-            this.x-=0.4-nivel*0.05;
+            this.x-=0.4-nivel*VELOCIDAD_DIFICULTAD;
             this.estaParaEliminar();
 
     }

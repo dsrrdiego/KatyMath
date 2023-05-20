@@ -63,10 +63,10 @@ function escena(dificultad){
     clearTimeout(reloj)
     reloj=setInterval(()=>{
         if (in_game){
-            const azar=Math.floor(Math.random()*12);    
-            (azar>6)? new Bola():new Cofre((Math.random()*COFRE_EN)+COFRE_A_PARTIR_DE);
+            const azar=Math.floor(Math.random()*COFRE_ENTRE);    
+            (azar>0)? new Bola():new Cofre((Math.random()*COFRE_MAXIMO)+COFRE_MINIMO);
         }   
-    },Math.floor((Math.random()*APARICION-dificultad*200)+3000-dificultad*200));
+    },Math.floor((Math.random()*APARICION-dificultad*INDICE_DIFICULTAD)+APARICION_UMBRAL-dificultad*INDICE_DIFICULTAD));
     in_game=true;
     new Llegada(BANDERA_CADA);
     gameLoop();

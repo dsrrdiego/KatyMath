@@ -46,9 +46,10 @@ function final(puntos){
     for (let n=0;n<10;n++){
         if (puntos>=listaPuntos[n].innerHTML) {
             
-            const okBtn=document.querySelector('#finalBtn')
+            // const okBtn=document.querySelector('#finalBtn')
             input.classList.remove('invisible');
-            okBtn.classList.remove('invisible');
+            input.focus();
+            // okBtn.classList.remove('invisible');
             
             
 
@@ -67,7 +68,7 @@ function final(puntos){
             });
             
 
-            okBtn.addEventListener('click',()=>agregar(puntos,okBtn,listaNombres[n],listaPuntos[n]));
+            input.addEventListener('change',()=>agregar(puntos,input,listaNombres[n],listaPuntos[n]));
             
             break;
         }

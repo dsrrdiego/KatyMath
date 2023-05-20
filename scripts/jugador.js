@@ -1,7 +1,6 @@
-const VELOCIDAD_X=10;
-const VELOCIDAD_RETROCESO=10;
+
 const MEDIOANCHO=12.5;
-const ALTO =35;
+const ALTO =33;
 
 const vidasDiv=[];const puntosDiv=[]; const flechasDiv=[];
 
@@ -36,9 +35,11 @@ class Jugador{
         this.x=250-numeroDeJugador*100;
         this.y=100;
         this.vidas=VIDAS_INICIAL;
-        this.puntos=0;
+        this.vidasParcial=0;
+        this.puntos=PUNTOS_INICIAL;
         this.puntosParciales=0;
         this.flechas=FLECHAS_INICIAL;
+        this.flechasParcial=0;
         this.saltando=false;
         jugadoresEnJuego.push(this);
         document.body.appendChild(this.div);
@@ -85,7 +86,7 @@ class Jugador{
     estaSaltando(){
         if (this.saltando!=0){
             this.saltando+=0.1;
-            const seno=Math.sin(this.saltando)*10;
+            const seno=Math.sin(this.saltando)*ALTURA_SALTO;
             this.y-=seno;
             if (this.saltando>6) this.saltando=0;
             
@@ -171,10 +172,12 @@ class Jugador{
 
 
 
-        this.vidasDiv  .innerHTML=this.vidas;
+        if (this.vidasParcial<this.vidas) this.vidasParcial+=0.1; else this.vidasParcial=this.vidas;
+        if (this.flechasParcial<this.flechas) this.flechasParcial+=0.1; else this.flechasParcial=this.flechas;
         if (this.puntosParciales<this.puntos) this.puntosParciales+=5;
+        this.vidasDiv  .innerHTML=Math.floor(this.vidasParcial);
         this.puntosDiv .innerHTML=this.puntosParciales;
-        this.flechasDiv.innerHTML=this.flechas;
+        this.flechasDiv.innerHTML=Math.floor(this.flechasParcial);
 
         }
 

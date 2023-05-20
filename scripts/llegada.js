@@ -24,7 +24,11 @@ class Llegada extends ElementoPiso{
     if (!this.pisado){
         this.pisado=true;
         infoDiv.innerHTML=`Congratuleiyons!! Nivel ${nivel} Completo!`;
-        infoDiv.classList.remove('invisible')
+        infoDiv.classList.remove('invisible');
+        jugadoresEnJuego.forEach((j)=>{
+            j.puntos+=1000;
+            j.flechas+=20;
+        })
         in_game=false;
         audio.cambiar("victoria.mp3");
         setTimeout(() => {

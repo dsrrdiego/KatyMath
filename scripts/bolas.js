@@ -9,7 +9,7 @@ class Bola{
             bolaNumero++;
             this.numero=bolaNumero%6;
             this.x=Math.floor(Math.random()*LIMITE_X);
-            this.radio=Math.floor(Math.random()*80)+20;
+            this.radio=Math.floor(Math.random()*BOLA_MAX)+BOLA_MIN;
             this.direccionX=Math.floor(Math.random()*7)-2;
             this.gravedad=GRAVEADADbaja;
             this.enColisionCon=null;
@@ -25,7 +25,7 @@ class Bola{
             this.numero=copia.numero;
             this.x=copia.x;
             this.y=copia.y;
-            this.radio=copia.radio/2;
+            this.radio=copia.radio*REDUCCION_BOLA;
             this.direccionX=copia.direccionX*direccion;
             this.gravedad=copia.gravedad;
             this.yTope=10;
@@ -58,7 +58,7 @@ class Bola{
         this.yTope+=0.5;
         if (this.yTope>200 ) {
             this.radio-=0.25;
-            if (this.radio<50){
+            if (this.radio<ENCHARQUE){
                 const indice=bolasEnElAire.indexOf(this);
                 bolasEnElAire.splice(indice,1);
                 document.body.removeChild(this.div);
