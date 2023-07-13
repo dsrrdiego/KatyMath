@@ -58,13 +58,17 @@ function inicializar2(personaje1, personaje2){
     inicializar();
 }
 
+
+//timer de cuando apareceran bolas o cofres
 let reloj;
 function escena(dificultad){
     clearTimeout(reloj)
     reloj=setInterval(()=>{
         if (in_game){
-            const azar=Math.floor(Math.random()*COFRE_ENTRE);    
-            (azar>0)? new Bola():new Cofre((Math.random()*COFRE_MAXIMO)+COFRE_MINIMO);
+            if (bolasEnElAire.length<nivel+1){
+                const azar=Math.floor(Math.random()*COFRE_ENTRE);    
+                (azar>0)? new Bola():new Cofre((Math.random()*COFRE_MAXIMO)+COFRE_MINIMO);
+            }
         }   
     },Math.floor((Math.random()*APARICION-dificultad*INDICE_DIFICULTAD)+APARICION_UMBRAL-dificultad*INDICE_DIFICULTAD));
     in_game=true;

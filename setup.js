@@ -15,8 +15,8 @@ const COFRE_MINIMO= 1000;  //pixeles horizontales
 const COFRE_ENTRE=3;  // cada 2 bolas se sortea un cofre
 
 
-const VIDAS_INICIAL=1;
-const PUNTOS_INICIAL=10000;
+const VIDAS_INICIAL=3;
+const PUNTOS_INICIAL=00;
 const FLECHAS_INICIAL=15;
 const FLECHAS_POR_COFRE=5;
 

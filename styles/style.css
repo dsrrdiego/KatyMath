@@ -3,6 +3,7 @@ body{
     height:480px;
     font-family: "KattYMatt", sans-serif; 
     font-size: medium;
+    zoom:100%;
 }
 
 /* botoncito de mutear el audio */
@@ -197,4 +198,45 @@ body{
 @font-face {
     font-family: "KattYMatt"; /* Asigna un nombre a tu fuente */
     src: url("../letras/letra.ttf"); /* Ruta relativa al archivo de fuente en tu carpeta de fonts */
+}
+
+
+.controlTab{
+    display:none;
+}
+@media  (max-width: 900px){
+    body {height: auto;
+    zoom:100%;}
+    .controlTab{
+        position: absolute;
+        height: 100px;
+        width:100px;
+        z-index:30;
+        border-radius: 14%;
+    }
+    #controlIzquierda{
+    background: url("../images/control/izquierda.png") center/cover;
+    bottom:0%;
+    }
+    #controlDerecha{
+        background: url("../images/control/derecha.png") center/cover;
+        bottom:0%;
+        right: 0%;
+    }
+    #controlFlecha{
+        background: url("../images/control/flecha.png") center/cover;
+        bottom:20%;
+        
+    }
+    #controlSaltar{
+        background: url("../images/control/saltar.png") center/cover;
+        bottom:20%;
+        right: 0%;
+        
+    }
+    @media (orientation: landscape) {
+        body{
+            zoom:50%;
+        }
+    }
 }

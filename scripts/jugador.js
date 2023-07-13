@@ -21,8 +21,27 @@ class Jugador{
             this.vidasDiv=document.querySelector('#vidasDiv1');
             this.puntosDiv=document.querySelector('#puntosDiv1');
             this.flechasDiv=document.querySelector('#flechasDiv1');
+            
         }else{
             this.soyDerecha=true;
+            document.querySelector("#controlIzquierda").addEventListener("touchstart",()=>tecla.ArrowLeft=true);
+            document.querySelector("#controlIzquierda").addEventListener("touchend",()=>tecla.ArrowLeft=false);
+            document.querySelector("#controlIzquierda").addEventListener("mousedown",()=>tecla.ArrowLeft=true);
+            document.querySelector("#controlIzquierda").addEventListener("mouseup",()=>tecla.ArrowLeft=false);
+            
+            document.querySelector("#controlDerecha").addEventListener("touchstart",()=>tecla.ArrowRight=true);
+            document.querySelector("#controlDerecha").addEventListener("touchend",()=>tecla.ArrowRight=false);
+            document.querySelector("#controlDerecha").addEventListener("mousedown",()=>tecla.ArrowRight=true);
+            document.querySelector("#controlDerecha").addEventListener("mouseup",()=>tecla.ArrowRight=false);
+            
+            document.querySelector("#controlSaltar").addEventListener("click",()=>tecla.Space=true);
+            document.querySelector("#controlFlecha").addEventListener("click",()=>tecla.ArrowUp=true);
+
+            let controlTabDisplay=document.querySelectorAll(".controlTab");
+            controlTabDisplay.forEach(element => {
+                element.style="display:flex;";
+            });
+            
             this.vidasDiv=document.querySelector('#vidasDiv0');
             this.puntosDiv=document.querySelector('#puntosDiv0');
             this.flechasDiv=document.querySelector('#flechasDiv0');
@@ -46,7 +65,6 @@ class Jugador{
 
 
     }
-
     puedoMover(a){
         if (a>0 && a<LIMITE_X)  {
             if (numeroDeJugador==2){
@@ -187,28 +205,28 @@ class Jugador{
 
     procesarEntrada(){
         if (this.soyDerecha){
-        if (tecla.ArrowLeft) this.retroceder();
-        if (tecla.ArrowRight) this.avanzar();
-        if (tecla.ArrowUp){
-            this.saltar();
-            tecla.ArrowUp=false;
-        }
-        if (tecla.Space){
-            this.disparar();
-            tecla.Space=false;       
-        } 
-    }else{
-        if (tecla.KeyA) this.retroceder();
-        if (tecla.KeyD) this.avanzar();
-        if (tecla.KeyW){
-            this.saltar();
-            tecla.KeyW=false;
-        }
-        if (tecla.ControlLeft){
-            this.disparar();
-            tecla.ControlLeft=false;       
+            if (tecla.ArrowLeft) this.retroceder();
+            if (tecla.ArrowRight) this.avanzar();
+            if (tecla.ArrowUp){
+                this.saltar();
+                tecla.ArrowUp=false;
+            }
+            if (tecla.Space){
+                this.disparar();
+                tecla.Space=false;       
+            } 
+        }else{
+            if (tecla.KeyA) this.retroceder();
+            if (tecla.KeyD) this.avanzar();
+            if (tecla.KeyW){
+                this.saltar();
+                tecla.KeyW=false;
+            }
+            if (tecla.ControlLeft){
+                this.disparar();
+                tecla.ControlLeft=false;       
+            }
         }
     }
-}
 
 }

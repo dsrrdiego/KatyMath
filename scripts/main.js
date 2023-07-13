@@ -43,6 +43,6 @@ function gameLoop() {
         requestAnimationFrame(gameLoop);
     }
 }
+window.onload=presentacion();
 
-presentacion();
 
